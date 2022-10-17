@@ -8,11 +8,15 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    @users = User.all
   end
 
   # GET /users/1 or /users/1.json
   def show
+    if not is_admin? and @user.id != session[:user_id]
+      respond_to do |format|
+        format.html { redirect_to users_path, notice: "You do not have permission to access that page." }
+      end
+    end
   end
 
   # GET /users/new
@@ -22,6 +26,11 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    if not is_admin? and @user.id != session[:user_id]
+      respond_to do |format|
+        format.html { redirect_to users_path, notice: "You do not have permission to access that page." }
+      end
+    end
   end
 
   # POST /users or /users.json
@@ -61,14 +70,18 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        if session[:user_id] == @user.id
-          format.html { redirect_to user_index_path, notice: "Profile was successfully updated." }
-        else
-          format.html { redirect_to admin_index_path, notice: "User was successfully updated." }
+    if @user.update(user_params)
+      if session[:user_id] == @user.id
+        respond_to do |format|
+          format.html { redirect_to users_path, notice: "Profile was successfully updated." }
         end
       else
+        respond_to do |format|
+          format.html { redirect_to admin_index_path, notice: "User was successfully updated." }
+        end
+      end
+    else
+      respond_to do |format|
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
