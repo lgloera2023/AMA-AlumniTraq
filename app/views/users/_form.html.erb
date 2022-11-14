@@ -1,4 +1,5 @@
 <%= form_with(model: user) do |form| %>
+<div class="col-lg-8">
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -12,74 +13,62 @@
   <% end %>
 
   <%if !session[:is_signup] && Current.user.is_admin? && Current.user.id != user.id%>
-    <div class="form-group row">
-      <%= form.label :email, class: "col-sm-2 col-form-label" %>
-      <div class="col-sm-10">
-        <%= form.text_field :email, placeholder: "Email", class: "form-control" %>
-      </div>
+    <div class="mb-3">
+      <%= form.label :email, class: "col-sm-2" %>
+      <%= form.text_field :email, placeholder: "Email", class: "form-control" %>
     </div>
-
-    <div class="form-group row">
-      <%= form.label :role_name, class: "col-sm-2 col-form-label" %>
-      <div class="col-sm-10">
-        <%= form.select :role_id, Role.order(:name).map { |role| [role.name, role.id] }, include_blank: false, id: "id_of_the_role_id_select_box" %>
-      </div>
+    
+    <div class="mb-3">
+      <%= form.label :role_name, class: "col-sm-2" %>
+      <%= form.select :role_id, Role.order(:name).map { |role| [role.name, role.id] }, include_blank: false, id: "id_of_the_role_id_select_box", class: "form-control" %>
     </div>
   <%else%>
-    <div class="form-group row">
-      <%= form.label :email, class: "col-sm-2 col-form-label" %>
-      <div class="col-sm-10">
-        <%= form.text_field :email, readonly: true, class: "form-control" %>
-      </div>
+    <div class="mb-3">
+      <%= form.label :email, class: "col-sm-2" %>
+      <%= form.text_field :email, readonly: true, class: "form-control" %>
     </div>
 
-    <div class="form-group row">
-      <%= form.label :role_name, class: "col-sm-2 col-form-label" %>
-      <div class="col-sm-10">
-        <% if Current.user.is_admin? %>
-          <!-- Require another admin to demote current admin -->
-          <% role = user.role %>
-          <%= form.text_field :role_name, value: role.name, readonly: true, class: "form-control" %>
-        <% elsif Current.user.is_event_planner? %>
-          <%= form.select :role_id, Role.where('id > 1').order(:name).map { |role| [role.name, role.id] }, include_blank: false, id: "id_of_the_role_id_select_box" %>
-        <% else %>
-          <%= form.select :role_id, Role.unprivileged.order(:name).map { |role| [role.name, role.id] }, include_blank: false, id: "id_of_the_role_id_select_box" %>
-        <% end %>
-      </div>
+    <div class="mb-3">
+      <%= form.label :role_name, class: "col-sm-2" %>
+      <% if Current.user.is_admin? %>
+        <!-- Require another admin to demote current admin -->
+        <% role = user.role %>
+        <%= form.text_field :role_name, value: role.name, readonly: true, class: "form-control" %>
+      <% elsif Current.user.is_event_planner? %>
+        <%= form.select :role_id, Role.where('id > 1').order(:name).map { |role| [role.name, role.id] }, include_blank: false, id: "id_of_the_role_id_select_box", class: "form-control" %>
+      <% else %>
+        <%= form.select :role_id, Role.unprivileged.order(:name).map { |role| [role.name, role.id] }, include_blank: false, id: "id_of_the_role_id_select_box", class: "form-control" %>
+      <% end %>
     </div>
   <% end %>
 
-  <div class="form-group row">
-    <%= form.label :first_name, class: "col-sm-2 col-form-label" %>
-    <div class="col-sm-10">
+  <div class="row gx-3 mb-3">
+    <!-- Form Group (first name)-->
+    <div class="col-md-6">
+      <%= form.label :first_name, class: "small mb-1" %>
       <%= form.text_field :first_name, placeholder: "First Name", class: "form-control" %>
     </div>
-  </div>
-
-  <div class="form-group row">
-    <%= form.label :last_name, class: "col-sm-2 col-form-label" %>
-    <div class="col-sm-10">
+    <!-- Form Group (last name)-->
+    <div class="col-md-6">
+      <%= form.label :last_name, class: "small mb-1" %>
       <%= form.text_field :last_name, placeholder: "Last Name", class: "form-control" %>
     </div>
   </div>
 
-  <div class="form-group row">
-    <%= form.label :major_name, class: "col-sm-2 col-form-label" %>
-    <div class="col-sm-10">
-      <%= form.select :major_id, Major.order(:name).map { |major| [major.name, major.id] }, include_blank: false, id: "id_of_the_major_id_select_box" %>
-    </div>
+  <div class="mb-3">
+    <%= form.label :major_name, class: "col-sm-2" %>
+    <%= form.select :major_id, Major.order(:name).map { |major| [major.name, major.id] }, include_blank: false, id: "id_of_the_major_id_select_box", class: "form-control" %>
   </div>
 
-  <div class="form-group row">
-    <%= form.label :graduation_year, class: "col-sm-2 col-form-label" %>
-    <div class="col-sm-10">
-      <%= form.number_field :graduation_year, placeholder: "Graduation Year", class: "form-control" %>
+  <div class="row gx-3 mb-3">
+    <!-- Form Group (first name)-->
+    <div class="col-md-6">
+      <%= form.label :graduation_year, class: "small mb-1" %>
+      <%= form.text_field :graduation_year, placeholder: "Graduation Year", class: "form-control" %>
     </div>
-  </div>
-
-  <div class="form-group row">
-    <%= form.label :phone, class: "col-sm-2 col-form-label" %>
-    <div class="col-sm-10">
+    <!-- Form Group (last name)-->
+    <div class="col-md-6">
+      <%= form.label :phone, class: "small mb-1" %>
       <%= form.text_field :phone, placeholder: "Phone Number", class: "form-control" %>
     </div>
   </div>
@@ -87,9 +76,15 @@
 
   <div class="actions">
   <% if request.path == new_user_path %>
-    <%= form.submit "Create Account", class: "btn btn-primary btn-block btn-top-margin" %>
+    <%= form.submit "Create Account", class: "button-89 btn-top-margin" %>
   <% else %>
-    <%= form.submit "Update Account", class: "btn btn-primary btn-block btn-top-margin" %>
+    <%= form.submit "Update Account", class: "button-89 btn-top-margin" %>
   <% end %>
   </div>
+</div
 <% end %>
+
+
+
+
+    

@@ -30,7 +30,7 @@
 
 <p>
   <strong>Major:</strong>
-  <%= @user.major.name %>
+  <%= @user.major_name_if_present %>
 </p>
 
 <p>
@@ -48,11 +48,12 @@
   <%= @user.phone %>
 </p>
 
-<p><%= link_to 'Edit Account Details', edit_user_path(@user) %></p>
-<% if Current.user.is_alumnus? %>
-  <p>
-    <%= link_to 'View Alumnus Info', Current.user.alumnus %> |
-    <%= link_to 'Social Media Handles', media_handles_path %>
-  </p>
-<% end %>
+<p>
+  <%= link_to 'Edit Account Details', edit_user_path(@user), class: "button-89 btn-top-margin no-underline" %>
+  <% if Current.user.is_alumnus? %>
+      <%= link_to 'View Alumnus Info', Current.user.alumnus, class: "button-89 btn-top-margin no-underline" %>
+      <%= link_to 'Social Media Handles', media_handles_path, class: "button-89 btn-top-margin no-underline" %>
+  <% end %>
+</p>
+
 <p><%= link_to 'Back', Current.previous_path %></p>
