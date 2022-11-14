@@ -1,162 +1,173 @@
-<h1>Frequently Asked Questions</h1>
+<div class="container">
+    <h1>Frequently Asked Questions</h1>
 
-<h2>Jump to...</h2>
-<ul>
-    <li><a href="#faq-directory">Directory</a></li>
-    <li><a href="#faq-calendar">Calendar</a></li>
-    <li><a href="#faq-account-settings">Account Settings</a></li>
-    <li><a href="#faq-alumni">Alumni</a></li>
-    <li><a href="#faq-general">General</a></li>
-</ul>
-
-<hr>
-<article id="faq-directory">
-    <h2>Directory</h2>
-
-    <h3>What all does the basic search look for?</h3>
-    <p>
-        The basic search checks the same categories as the advanced search except
-        it checks if the key term matches any record in those categories.
-        For example, if you enter "computer", the directory returns all alumni
-        with "computer" in their first name, last name, major, graduation year,
-        job category, job title, or employer.
-    </p>
-
-    <h3>How is the advanced search different from the basic search?</h3>
-    <p>
-        The advanced search returns all alumni that match each of the criteria
-        given. The blank categories are ignored. For example, if you want to
-        search for someone who has a job in finance but not necessarily those
-        who got a degree in finance, then you could enter "finance" in the job
-        category field to search for alumni with a finance job, which might
-        include business, economics, or any other major. 
-    </p>
-
-    <h3>Are the searches case sensative?</h3>
-    <p>
-        No. Capitalization doesn't matter.
-    </p>
-
-    <h3>How do you search for graduation year?</h3>
-    <p>
-        The directory returns all the alumni that have a graduation year that
-        contains the digits you provide. For example, if you enter "20", then
-        the directory would return all the alumni that graduated in the 21st
-        century and those that have a "20" in their graduation year such as
-        19<b>20</b> or 2<b>20</b>1 in the future.
-    </p>
-</article>
-
-<hr>
-<article id="faq-calendar">
-    <h2>Calendar</h2>
-
-    <h3>How do I see all past meetings?</h3>
-    <p>
-        Click the "View Past Meetings" link on the main calendar page.
-    </p>
-
-    <h3>Can I see a list of all upcoming meetings?</h3>
-    <p>
-        Yes! Click on the "View Upcoming Meetings" link on the main calendar page.
-    </p>
-
-    <h3>Can I create a new event?</h3>
-    <p>
-        Only an admin or members authorized by an admin can create, edit, or
-        delete events.
-    </p>
-
-    <h3>How do I RSVP to an event?</h3>
-    <p>
-        Go to the calendar page by clicking the link in the navigation bar. Then
-        find the link to the event on the calendar. The title of the event will
-        appear as a link on its corresponding day in the calendar. Once you open
-        the event, click on the button saying "Count Me In!".
-    </p>
-
-    <h3>How do I see who all is going to an event?</h3>
-    <p>
-        Open the details of the event just as in <i>How do I RSVP to an event?</i>.
-        You will find a list of everyone going on that page. You can also view the
-        profile of each alumni going to the event from the event details page.
-    </p>
-</article>
-
-<hr>
-<article id="faq-account-settings">
-    <h2>Account Settings</h2>
-
-    <h3>Where can I find my account settings?</h3>
-    <p>
-        Click on your name next to the logout button in the top right corner for
-        large screens or on the bottom of the drop down menu for small screens.
-    </p>
-
-    <h3>What all can I change in my profile?</h3>
-    <p>
-        You can edit anything but your role in the application. The only thing
-        not required is your phone number.
-    </p>
-</article>
-
-<hr>
-<article id="faq-alumni">
-    <h2>Alumni</h2>
-
-    <h3>How do I add my social media accounts so people can contact me?</h3>
-    <p>
-        If you are an alumni, you will find a link to view your social
-        media accounts from account settings page. See <i>Where can I find my 
-        account settings?</i>. You can add, edit, or delete all of your accounts
-        from there.
-    </p>
-
-    <h3>What is my alumnus info?</h3>
-    <p>
-        This is information only needed by alumni, such as your profile photo, 
-        bio, current job, and availability to talk with current students. Current
-        students can use this information to see who they would like to network
-        with. All of this information is completely optional but would help out 
-        the students tremendously.
-    </p>
-
-    <h3>What is an alumnus?</h3>
-    <p>
-        Singular for alumni. For example, "Look at this distinguished alumnus."
-        The plural would be, "Texas A&M has the best alumni."
-    </p>
-</article>
-
-<hr>
-<article id="faq-general">
-    <h2>General Questions</h2>
-
-    <h3>Why do I have to use OAuth?</h3>
-    <p>
-        This increases the security of your passwords since the AlumniTraq
-        app does not handle the login at all. You can feel more confident in
-        Google, Facebook, or LinkedIn's ability to keep your password safe
-        rather than a small app built by students.
-    </p>
-
-    <h3>Do I have to use Google, Facebook, or LinkedIn?</h3>
-    <p>
-        Yes, you have to use one of those three options. On the bright side,
-        you can use any of those options to log you in. Even if you register
-        with Google, you can still sign in with Facebook so long as the
-        emails are the same.
-    </p>
-
-    <h3>Will logging me out of the application log me out of Google, Facebook, or LinkedIn?</h3>
-    <p>
-        No. Logging out of the app will only log you out of AlumniTraq.
-    </p>
-
-    <h3>How long can I stay logged in?</h3>
-    <p>
-        Normal users and alumni can stay logged in indefinetly since no sensative information
-        is stored with their accounts. Only users with additional privilegs have a timeout
-        on their login status.
-    </p>
-</article>
+    <div class="container-fluid flex-grow-1 d-flex">
+        <div class="row flex-fill flex-column flex-sm-row">
+            <div class="col-sm-3 col-md-2 sidebar flex-shrink-1 bg-light pt-3" id="Navbar">
+                <ul class="nav flex-lg-column">
+                    <h10 style = "font-family: adobe-garamond-pro;"><strong>Jump To...</strong></h10>
+                    <li><a class="nav-link" href="#faq-directory" style = "font-family: adobe-garamond-pro">Directory</a></li>
+                    <li><a class="nav-link" href="#faq-calendar" style = "font-family: adobe-garamond-pro;">Calendar</a></li>
+                    <li><a class="nav-link" href="#faq-account-settings" style = "font-family: adobe-garamond-pro;">Account Settings</a></li>
+                    <li><a class="nav-link" href="#faq-alumni" style = "font-family: adobe-garamond-pro;">Alumni</a></li>
+                    <li><a class="nav-link" href="#faq-general" style = "font-family: adobe-garamond-pro;">General</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 flex-grow-1 py-3">
+            <article id="faq-directory">
+                            <h2><strong>Directory</strong></h2>
+                    
+                            <h3>What all does the basic search look for?</h3>
+                            <p>
+                                The basic search checks the same categories as the advanced search except
+                                it checks if the key term matches any record in those categories.
+                                For example, if you enter "computer", the directory returns all alumni
+                                with "computer" in their first name, last name, major, graduation year,
+                                job category, job title, or employer.
+                            </p>
+                    
+                            <h3>How is the advanced search different from the basic search?</h3>
+                            <p>
+                                The advanced search returns all alumni that match each of the criteria
+                                given. The blank categories are ignored. For example, if you want to
+                                search for someone who has a job in finance but not necessarily those
+                                who got a degree in finance, then you could enter "finance" in the job
+                                category field to search for alumni with a finance job, which might
+                                include business, economics, or any other major. 
+                            </p>
+                    
+                            <h3>Are the searches case sensative?</h3>
+                            <p>
+                                No. Capitalization doesn't matter.
+                            </p>
+                    
+                            <h3>How do you search for graduation year?</h3>
+                            <p>
+                                The directory returns all the alumni that have a graduation year that
+                                contains the digits you provide. For example, if you enter "20", then
+                                the directory would return all the alumni that graduated in the 21st
+                                century and those that have a "20" in their graduation year such as
+                                19<b>20</b> or 2<b>20</b>1 in the future.
+                            </p>
+                            </article>
+                    
+                            <hr>
+                            <article id="faq-calendar">
+                            <h2><strong>Calendar</strong></h2>
+                    
+                            <h3>How do I see all past meetings?</h3>
+                            <p>
+                                Click the "View Past Meetings" link on the main calendar page.
+                            </p>
+                    
+                            <h3>Can I see a list of all upcoming meetings?</h3>
+                            <p>
+                                Yes! Click on the "View Upcoming Meetings" link on the main calendar page.
+                            </p>
+                    
+                            <h3>Can I create a new event?</h3>
+                            <p>
+                                Only an admin or members authorized by an admin can create, edit, or
+                                delete events.
+                            </p>
+                    
+                            <h3>How do I RSVP to an event?</h3>
+                            <p>
+                                Go to the calendar page by clicking the link in the navigation bar. Then
+                                find the link to the event on the calendar. The title of the event will
+                                appear as a link on its corresponding day in the calendar. Once you open
+                                the event, click on the button saying "Count Me In!".
+                            </p>
+                    
+                            <h3>How do I see who all is going to an event?</h3>
+                            <p>
+                                Open the details of the event just as in <i>How do I RSVP to an event?</i>.
+                                You will find a list of everyone going on that page. You can also view the
+                                profile of each alumni going to the event from the event details page.
+                            </p>
+                            </article>
+                    
+                            <hr>
+                            <article id="faq-account-settings">
+                            <h2><strong>Account Settings</strong></h2>
+                    
+                            <h3>Where can I find my account settings?</h3>
+                            <p>
+                                Click on your name next to the logout button in the top right corner for
+                                large screens or on the bottom of the drop down menu for small screens.
+                            </p>
+                    
+                            <h3>What all can I change in my profile?</h3>
+                            <p>
+                                You can edit anything but your role in the application. The only thing
+                                not required is your phone number.
+                            </p>
+                            </article>
+                    
+                            <hr>
+                            <article id="faq-alumni">
+                            <h2><strong>Alumni</strong></h2>
+                    
+                            <h3>How do I add my social media accounts so people can contact me?</h3>
+                            <p>
+                                If you are an alumni, you will find a link to view your social
+                                media accounts from account settings page. See <i>Where can I find my 
+                                account settings?</i>. You can add, edit, or delete all of your accounts
+                                from there.
+                            </p>
+                    
+                            <h3>What is my alumnus info?</h3>
+                            <p>
+                                This is information only needed by alumni, such as your profile photo, 
+                                bio, current job, and availability to talk with current students. Current
+                                students can use this information to see who they would like to network
+                                with. All of this information is completely optional but would help out 
+                                the students tremendously.
+                            </p>
+                    
+                            <h3>What is an alumnus?</h3>
+                            <p>
+                                Singular for alumni. For example, "Look at this distinguished alumnus."
+                                The plural would be, "Texas A&M has the best alumni."
+                            </p>
+                            </article>
+                    
+                            <hr>
+                            <article id="faq-general">
+                            <h2><strong>General Questions</strong></h2>
+                    
+                            <h3>Why do I have to use OAuth?</h3>
+                            <p>
+                                This increases the security of your passwords since the AlumniTraq
+                                app does not handle the login at all. You can feel more confident in
+                                Google, Facebook, or LinkedIn's ability to keep your password safe
+                                rather than a small app built by students.
+                            </p>
+                    
+                            <h3>Do I have to use Google, Facebook, or LinkedIn?</h3>
+                            <p>
+                                Yes, you have to use one of those three options. On the bright side,
+                                you can use any of those options to log you in. Even if you register
+                                with Google, you can still sign in with Facebook so long as the
+                                emails are the same.
+                            </p>
+                    
+                            <h3>Will logging me out of the application log me out of Google, Facebook, or LinkedIn?</h3>
+                            <p>
+                                No. Logging out of the app will only log you out of AlumniTraq.
+                            </p>
+                    
+                            <h3>How long can I stay logged in?</h3>
+                            <p>
+                                Normal users and alumni can stay logged in indefinetly since no sensative information
+                                is stored with their accounts. Only users with additional privilegs have a timeout
+                                on their login status.
+                            </p>
+                            </article>
+            </div>
+        </div>
+    </div>
+</div>
+        
+ 
+    
