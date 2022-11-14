@@ -19,12 +19,17 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit; end
+  def edit
+    Current.previous_path = if session[:user_id] == @user.id
+                              "/users/#{String(@user.id)}"
+                            else
+                              '/admin'
+                            end
+  end
 
   # POST /users or /users.json
   def create
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
         # Login the new user if not an admin
@@ -139,7 +144,7 @@ class UsersController < ApplicationController
         format.json { render(:index, status: :created, location: @user) }
       end
     else
-      format.html { render(:edit, status: :unprocessable_entity) }
+      format.html { render('users/signup', status: :unprocessable_entity) }
       format.json { render(json: @user.errors, status: :unprocessable_entity) }
     end
   end

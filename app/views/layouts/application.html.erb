@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>AlumniTraq</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -8,31 +9,92 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <% if Rails.env.production? %>
+      <%= stylesheet_pack_tag "application", media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% end %>
   </head>
 
   <body>
+
     <% if Current.user %>
-      <nav>
-        <ul>
-          <!-- This puts the navbar on each page -->
-          <li><%= link_to 'Directory', '/' %></li>
-          <li><%= link_to 'Calendar', '/meetings' %></li>
-          <li><%= link_to 'FAQ', '/faq' %></li>
+      <nav class="navbar navbar-expand-lg" style="background-image: url('https://marcomm.tamu.edu/_files/img/work-with-us_2400.jpg');">
+        <div class="container-fluid" style="padding: 30px 30px 80px 30px;">
+          <a class="navbar-brand"></a>
+          <img src="https://images.squarespace-cdn.com/content/v1/568841be5a56682e0b8162f2/1510940137363-1T0H93GH67WNQO652JN2/amalogo.png?format=1500w" alt="Logo" class="main-text">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse go-right" id="navbarText">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <li><%= link_to t("directory"), '/', class: "nav-text" %></li>
+              </li>
+              <li class="nav-item">
+                <li><%= link_to t("calendar"), '/meetings', class: "nav-text" %></li>
+              </li>
+              <li class="nav-item">
+                <li><%= link_to 'FAQ', '/faq', class: "nav-text" %></li>
+              </li>
+              <% if Current.user.is_admin? %>
+                <li class="nav-item">
+                  <li><%= link_to t("admin"), admin_index_path, class: "nav-text" %></li>
+                </li>
+              <% end %>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img
+                    src="https://i.pinimg.com/564x/0c/3b/3a/0c3b3adb1a7530892e55ef36d3be6cb8.jpg"
+                    class="rounded-circle"
+                    height="35"
+                    alt="Profile Pic"
+                    loading="lazy"
+                  />
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li>
+                    <li><%= link_to "Settings", Current.user, class: "dropdown-item" %></li>  
+                  </li>
+                  <li>
+                    <li><%= button_to(t("logout"), logout_path, method: :delete, class: "dropdown-item") %></li>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li>
+                    <a class="dropdown-item-text"><%= Current.user.first_name %> <%= Current.user.last_name %></a>
+                  </li>
+                </ul>
+              </li>
 
-          <!-- Put Admin if role == admin -->
-          <% if Current.user.is_admin? %>
-            <li><%= link_to 'Admin', admin_index_path %></li>
-          <% end %>
+              <!-- Google Translate -->
+              <div id="google_translate_element"></div>
+              <script type="text/javascript">
+                function googleTranslateElementInit() {
+                  new google.translate.TranslateElement(
+                      {pageLanguage: 'en'},
+                      'google_translate_element'
+                  );
+              }
+              </script>
+    
+              <script type="text/javascript"
+                src= "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+              </script>
 
-          <!-- User's name and option to logout -->
-          <li style="display: flex; color: #666">
-            <%= link_to("#{Current.user.first_name} #{Current.user.last_name}", Current.user, class: "profile-tab") %> | 
-            <%= button_to("Logout", logout_path, method: :delete) %>
-          </li>
-        </ul>
+              <div data-controller="dark-mode" class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="darkSwitch" />
+                <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+              </div>
+              
+            </ul>
+          </div>
+          </a>
+        </div>
       </nav>
+
     <% end %>
 
     <%= yield %>
   </body>
+
 </html>

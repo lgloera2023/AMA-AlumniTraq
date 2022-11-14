@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class MeetingsController < ApplicationController
+  skip_before_action :set_smart_link, only: %i[destroy]
   before_action :set_meeting, only: %i[show edit update destroy]
   before_action :check_event_authority, except: %i[index show]
 
@@ -24,6 +25,7 @@ class MeetingsController < ApplicationController
   # GET /meetings/1 or /meetings/1.json
   def show
     @event_attendee = EventAttendee.find_by(user: Current.user, meeting: @meeting)
+    Current.previous_path = '/meetings'
   end
 
   # GET /meetings/new
@@ -32,7 +34,9 @@ class MeetingsController < ApplicationController
   end
 
   # GET /meetings/1/edit
-  def edit; end
+  def edit
+    Current.previous_path = "/meetings/#{String(@meeting.id)}"
+  end
 
   # POST /meetings or /meetings.json
   def create

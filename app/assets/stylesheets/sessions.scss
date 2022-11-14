@@ -59,3 +59,76 @@
     color: #FFF;
     background-color: initial;
 }
+
+.video-background {
+    background-image: url("https://images.squarespace-cdn.com/content/v1/568841be5a56682e0b8162f2/1502477638042-8AP2BUAAV0SGJFBO4A8Y/19956890_10155069589143172_8362034641597967367_o+%281%29.jpg");
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: -99;
+}
+.video-foreground,
+.video-background iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+}
+#vidtop-content {
+    top: 0;
+}
+
+@media (min-aspect-ratio: 16/9) {
+    .video-foreground { height: 300%; top: -100%; }
+}
+@media (max-aspect-ratio: 16/9) {
+    .video-foreground { width: 300%; left: -100%; }
+}
+
+
+@media (min-width: 768px) {
+    .sign-in-pad {
+            margin-right: 25rem !important;
+            margin-left: 25rem !important;
+            margin-top: 6rem !important;
+        }
+}
+
+form {
+    display: inline !important;
+    margin-top: 0em;
+}
+
+@media (min-width: 768px) {
+    .sign-up-pad {
+            margin-right: 17rem !important;
+            margin-left: 17rem !important;
+            margin-top: 4rem !important;
+        }
+}
+
+@media (min-width: 992px) {
+    .fix-width {
+        flex: 0 0 auto;
+    }
+}
+
+.fa-white {
+    --bs-btn-color: #f8f9fa !important;
+    --bs-btn-hover-color: #888 !important;
+    --bs-btn-active-color: #888 !important;
+}
+
+.sign-up-text {
+    color: #f8f9fa;
+    font-family: sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 32px;
+    letter-spacing: 0px;
+    text-transform: none;
+    line-height: 1.2em;
+}
+
+
+
+

@@ -1,10 +1,46 @@
-<main id="login-main">
-    <div id="login-container">
-        <h1>Aggie Men's Alliance</h1>
-        <h2>AlumniTraq</h2>
-
-        <%= button_to "Continue with Google", user_google_oauth2_omniauth_authorize_path, class: 'oauth-button' %>
-        <%= button_to "Continue with Facebook", user_facebook_omniauth_authorize_path, class: 'oauth-button' %>
-        <%= button_to "Continue with LinkedIn", user_linkedin_omniauth_authorize_path, class: 'oauth-button' %>
+<div class="video-background">
+    <div class="video-foreground">
+        <iframe src="//player.vimeo.com/video/194104442?api=1&amp;background=1" frameborder="0" allowfullscreen class="background-video ready"></iframe>
     </div>
-</main>
+</div>
+
+<!-- Section: Design Block -->
+<section class="text-center">
+
+  <div class="card shadow-5-strong sign-in-pad" style="
+        
+        background: #510400;
+        backdrop-filter: blur(30px);
+        opacity: .96;
+        ">
+    <div class="card-body py-5 px-md-5">
+
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-8">
+          <img src="https://images.squarespace-cdn.com/content/v1/568841be5a56682e0b8162f2/1510940137363-1T0H93GH67WNQO652JN2/amalogo.png?format=1500w" alt="Logo" style="width: 410px; margin-bottom: 30px;">
+
+          <!-- Register buttons -->
+          <div class="text-center sign-up-text"  style="margin-bottom: 1rem">
+            <p>Sign In or Sign Up Using:</p>
+
+            <%= button_to user_facebook_omniauth_authorize_path, class: "btn btn-link btn-floating mx-1 fa-white" do %>
+              <i class="fab fa-facebook-f fa-xl"></i>
+            <% end %>
+
+            <%= button_to user_google_oauth2_omniauth_authorize_path, class: "btn btn-link btn-floating mx-1 fa-white" do %>
+              <i class="fab fa-google fa-xl"></i>
+            <% end %>
+
+            <%= button_to user_linkedin_omniauth_authorize_path, class: "btn btn-link btn-floating mx-1 fa-white" do %>
+              <i class="fab fa-linkedin-in fa-xl"></i>
+            <% end %>
+
+          </div>          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Section: Design Block -->
+
+

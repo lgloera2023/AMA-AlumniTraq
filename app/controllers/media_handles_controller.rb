@@ -11,18 +11,24 @@ class MediaHandlesController < ApplicationController
                      else
                        MediaHandle.where(alumnus: Current.user.alumnus)
                      end
+    Current.previous_path = '/settings'
   end
 
   # GET /media_handles/1 or /media_handles/1.json
-  def show; end
+  def show
+    Current.previous_path = '/media_handles'
+  end
 
   # GET /media_handles/new
   def new
     @media_handle = MediaHandle.new
+    Current.previous_path = '/media_handles'
   end
 
   # GET /media_handles/1/edit
-  def edit; end
+  def edit
+    Current.previous_path = "/media_handles/#{String(@media_handle.id)}"
+  end
 
   # POST /media_handles or /media_handles.json
   def create

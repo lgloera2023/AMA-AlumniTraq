@@ -1,75 +1,78 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+ 
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <%= link_to image_tag(@user.alumnus.image_as_thumbnail), @user.alumnus.image if @user.alumnus.image.attached? %>
-</p>
-<h1><%= @user.first_name %> <%= @user.last_name %></h1>
+  <p>
+    <%= link_to image_tag(@user.alumnus.image_as_thumbnail), @user.alumnus.image if @user.alumnus.image.attached? %>
+  </p>
+  <h1><%= @user.first_name %> <%= @user.last_name %></h1>
 
-<p>
-  <strong>Major:</strong>
-  <% if @user.major.present? %>
-    <%= @user.major.name %>
-  <% end %>
-</p>
-
-<p>
-  <strong>Graduation year:</strong>
-  <%= @user.graduation_year %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @user.phone %>
-</p>
-
-<p>
-  <strong>Bio:</strong>
-  <%= @user.alumnus.bio %>
-</p>
-
-<p>
-  <strong>Job category:</strong>
-  <%= @user.alumnus.job_category_name_if_present %>
-</p>
-
-<p>
-  <strong>Job title:</strong>
-  <%= @user.alumnus.job_title %>
-</p>
-
-<p>
-  <strong>Employer:</strong>
-  <%= @user.alumnus.employer %>
-</p>
-
-<p>
-  <strong>Availability:</strong>
-  <%= @user.alumnus.availability %>
-</p>
-
-<p>
-  <strong>Social Media:</strong>
-  <ul>
-    <% @user.alumnus.media_handles.each do |handle| %>
-      <li><%= button_to handle.platform, handle.link, method: :get %></li>
+  <p>
+    <strong>Major:</strong>
+    <% if @user.major.present? %>
+      <%= @user.major.name %>
     <% end %>
-  </ul>
-</p>
+  </p>
 
-<% if Current.previous_path.start_with? "/advanced_searches/search" %>
-  <!-- Make it easier for user to go back to previous search -->
-  <%= form_with url: search_advanced_searches_url, method: :get do |form| %>
-    <% Current.previous_search.each do |param, value| %>
-      <%= form.hidden_field param, value: value %>
+  <p>
+    <strong>Graduation year:</strong>
+    <%= @user.graduation_year %>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </p>
+
+  <p>
+    <strong>Phone:</strong>
+    <%= @user.phone %>
+  </p>
+
+  <p>
+    <strong>Bio:</strong>
+    <%= @user.alumnus.bio %>
+  </p>
+
+  <p>
+    <strong>Job category:</strong>
+    <%= @user.alumnus.job_category_name_if_present %>
+  </p>
+
+  <p>
+    <strong>Job title:</strong>
+    <%= @user.alumnus.job_title %>
+  </p>
+
+  <p>
+    <strong>Employer:</strong>
+    <%= @user.alumnus.employer %>
+  </p>
+
+  <p>
+    <strong>Availability:</strong>
+    <%= @user.alumnus.availability %>
+  </p>
+
+  <p>
+    <strong>Social Media:</strong>
+    <ul>
+      <% @user.alumnus.media_handles.each do |handle| %>
+        <li><%= button_to handle.platform, handle.link, method: :get %></li>
+      <% end %>
+    </ul>
+  </p>
+
+  <% if Current.previous_path.start_with? "/advanced_searches/search" %>
+    <!-- Make it easier for user to go back to previous search -->
+    <%= form_with url: search_advanced_searches_url, method: :get do |form| %>
+      <% Current.previous_search.each do |param, value| %>
+        <%= form.hidden_field param, value: value %>
+      <% end %>
+      <%= form.submit 'Back' %>
     <% end %>
-    <%= form.submit 'Back' %>
+  <% else %>
+    <!-- Make it easier for user to go back to wherever they came from if not a search -->
+    <%= link_to 'Back', Current.previous_path %>
   <% end %>
-<% else %>
-  <!-- Make it easier for user to go back to wherever they came from if not a search -->
-  <%= link_to 'Back', Current.previous_path %>
-<% end %>
+</div>

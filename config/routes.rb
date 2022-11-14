@@ -27,7 +27,8 @@ Rails.application.routes.draw do
       get :search
     end
   end
-
+  # Profile Settings route
+  resources :settings, only: [:index]
   # Sessions routes
   get 'login', to: 'sessions#new'
   resources :sessions, only: [:new] # Add this for LinkedIn omniauth
@@ -37,6 +38,7 @@ Rails.application.routes.draw do
   # Admin page route
   resources :admin, only: [:index]
   post '/admin/approve' => 'admin#approve', as: :approve
+  get '/admin/documentation' => 'admin#documentation', as: :documentation
 
   # FAQ route
   resources :faq, only: [:index]

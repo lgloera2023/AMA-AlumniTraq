@@ -1,0 +1,14 @@
+<h1>Settings</h1>
+
+<%= image_tag(Current.user.alumnus.image_as_thumbnail) if (Current.user.is_alumnus? && Current.user.alumnus.image.attached?) %>
+
+<ul>
+    <% if Current.user.is_admin? %>
+        <li><%= link_to 'Admin Page', admin_index_path %></li>
+    <% end %>
+    <li><%= link_to 'Account Details', Current.user %></li>
+    <% if Current.user.is_alumnus? %>
+        <li><%= link_to 'Alumnus Info', Current.user.alumnus %></li>
+        <li><%= link_to 'Social Media Handles', media_handles_path %></li>
+    <% end %>
+</ul>

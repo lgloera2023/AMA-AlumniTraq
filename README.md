@@ -25,6 +25,9 @@ Download this code repository by using git:
 
  `git clone https://github.com/lgloera2023/AMA-AlumniTraq/tree/main`
 
+Download the Docker image if you want to run the app locally:
+ `docker pull dmartinez05/ruby_rails_postgresql:latest`
+
 ## Tests ##
 
 An RSpec test suite is available and can be ran using:
@@ -83,5 +86,5 @@ Connected to push/pull requests to the main branch and the central "test" branch
 
 ## Support ##
 
-Admins looking for support should first look at the application help page.
-Users looking for help seek out assistance from the customer.
+Admins looking for support should first look at the admin document linked from the admin page.
+Users looking for help seek out assistance from the FAQ page or contact the IT officer.

@@ -31,3 +31,20 @@
 
 en:
   hello: "Hello world"
+  directory: "Directory"
+  calendar: "Calendar"
+  admin: "Admin"
+  logout: "Logout"
+
+  basic_searches:
+    search:
+      found: "Found"
+      matches: "matches"
+      first_name: "First Name"
+      last_name: "Last Name"
+      major: "Major"
+      graduation_year: "Graduation Year"
+      job_category: "Job Category"
+      job_title: "Job Title"
+      employer: "Employer"
+

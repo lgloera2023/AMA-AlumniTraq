@@ -1,0 +1,18 @@
+es:
+  hello: "Hola mundo"
+  directory: "Directorio"
+  calendar: "Calendario"
+  admin: "Administración"
+  logout: "Cerrar Sesión"
+
+  basic_searches:
+    search:
+      found: "Encontramos"
+      matches: "coincidencias"
+      first_name: "Nombre"
+      last_name: "Apellido"
+      major: "Carrera Universitaria"
+      graduation_year: "Año de Graduación"
+      job_category: "Categoría de Trabajo"
+      job_title: "Título del Trabajo"
+      employer: "Empleador"

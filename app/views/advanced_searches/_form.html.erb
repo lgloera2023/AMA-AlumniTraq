@@ -1,45 +1,48 @@
-<h1>Advanced Search</h1>
+<div class="container">
 
-<%= form_with(url: search_advanced_searches_path, method: 'get') do |form| %>
+  <h1>Advanced Search</h1>
 
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
-  </div>
+  <%= form_with(url: search_advanced_searches_path, method: 'get') do |form| %>
 
     <div class="field">
-      <%= form.label :last_name %>
-      <%= form.text_field :last_name %>
+      <%= form.label :first_name %>
+      <%= form.text_field :first_name %>
     </div>
+
+      <div class="field">
+        <%= form.label :last_name %>
+        <%= form.text_field :last_name %>
+      </div>
+
+      <div class="field">
+        <%= form.label :major_id %>
+        <!-- Changed major_id to major_name -->
+        <%= form.select :major_id, Major.order(:name).map { |major| [major.name, major.id] }, include_blank: true, id: "id_of_the_major_id_select_box" %>
+      </div>
+
+      <div class="field">
+        <%= form.label :graduation_year %>
+        <%= form.number_field :graduation_year %>
+      </div>
+
+      <div class="field">
+        <%= form.label :job_category_id %>
+        <!-- Changed job_category_id to job_category_name -->
+        <%= form.select :job_category_id, JobCategory.order(:name).map { |job_category| [job_category.name, job_category.id] }, include_blank: true, id: "id_of_the_job_category_id_select_box" %>
+      </div>
+
+      <div class="field">
+        <%= form.label :job_title %>
+        <%= form.text_field :job_title %>
+      </div>
 
     <div class="field">
-      <%= form.label :major_id %>
-      <!-- Changed major_id to major_name -->
-      <%= form.select :major_id, Major.order(:name).map { |major| [major.name, major.id] }, include_blank: true, id: "id_of_the_major_id_select_box" %>
+      <%= form.label :employer %>
+      <%= form.text_field :employer %>
     </div>
 
-    <div class="field">
-      <%= form.label :graduation_year %>
-      <%= form.number_field :graduation_year %>
+    <div class="actions">
+      <%= form.submit "Search" %>
     </div>
-
-    <div class="field">
-      <%= form.label :job_category_id %>
-      <!-- Changed job_category_id to job_category_name -->
-      <%= form.select :job_category_id, JobCategory.order(:name).map { |job_category| [job_category.name, job_category.id] }, include_blank: true, id: "id_of_the_job_category_id_select_box" %>
-    </div>
-
-    <div class="field">
-    <%= form.label :job_title %>
-    <%= form.text_field :job_title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :employer %>
-    <%= form.text_field :employer %>
-  </div>
-
-    <div cformass="actions">
-      <%= form.submit "Search", class: "pure-button pure-button-primary"%>
-    </div>
-<% end %>
+  <% end %>
+</div>

@@ -11,7 +11,9 @@ class AlumniController < ApplicationController
   end
 
   # GET /alumni/1 or /alumni/1.json
-  def show; end
+  def show
+    Current.previous_path = "/users/#{String(@alumnus.user.id)}"
+  end
 
   # GET /alumni/new
   def new
@@ -19,7 +21,9 @@ class AlumniController < ApplicationController
   end
 
   # GET /alumni/1/edit
-  def edit; end
+  def edit
+    Current.previous_path = "/alumni/#{String(@alumnus.id)}"
+  end
 
   # POST /alumni or /alumni.json
   def create

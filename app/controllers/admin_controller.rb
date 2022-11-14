@@ -7,6 +7,8 @@ class AdminController < ApplicationController
     @users = User.unapproved_users
   end
 
+  def documentation; end
+
   def approve
     @user = User.find(Integer(approval_param[:user_id]))
     if @user.update(is_approved: true)

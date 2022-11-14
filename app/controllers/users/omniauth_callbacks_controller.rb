@@ -18,7 +18,7 @@ module Users
       handle_auth('LinkedIn')
     end
 
-    def handle_auth(provider)
+    def handle_auth(_provider)
       # Implemented in app/models/user.rb
       response = User.from_omniauth(request.env['omniauth.auth'])
       @user = response[:user]
@@ -27,10 +27,11 @@ module Users
       if session[:is_signup]
         @user.graduation_year = nil
         @user.role = nil
-        render(new_user_path)
+        @user.major = nil
+        render('users/signup')
       else
         session[:user_id] = @user.id
-        redirect_to(root_path, notice: "Logged in with #{provider}")
+        redirect_to(root_path)
       end
     end
   end

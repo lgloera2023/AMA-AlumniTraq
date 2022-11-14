@@ -11,43 +11,57 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, readonly: true %>
+  <div class="form-group row">
+    <%= form.label :email, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= form.text_field :email, placeholder: "Email", class: "form-control" , readonly: true %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :role_name %>
-    <!-- Changed role_id to role_name -->
-    <%= form.select :role_id, Role.unprivileged.order(:name).map { |role| [role.name, role.id] }, include_blank: false, id: "id_of_the_role_id_select_box" %>
+  <div class="form-group row">
+    <%= form.label :role_name, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <!-- Changed role_id to role_name -->
+      <%= form.select :role_id, Role.unprivileged.order(:name).map { |role| [role.name, role.id] }, include_blank: false, id: "id_of_the_role_id_select_box" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name%>
+  <div class="form-group row">
+    <%= form.label :first_name, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= form.text_field :first_name, placeholder: "First Name", class: "form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :major_name %>
-    <!-- Changed major_id to major_name -->
-    <%= form.select :major_id, Major.order(:name).map { |major| [major.name, major.id] }, include_blank: false, id: "id_of_the_major_id_select_box" %>
+  <div class="form-group row">
+    <%= form.label :last_name, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= form.text_field :last_name, placeholder: "Last Name", class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :graduation_year %>
-    <%= form.number_field :graduation_year %>
+  <div class="form-group row">
+    <%= form.label :major_name, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <!-- Changed major_id to major_name -->
+      <%= form.select :major_id, Major.order(:name).map { |major| [major.name, major.id] }, include_blank: false, id: "id_of_the_major_id_select_box" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone %>
+  <div class="form-group row">
+    <%= form.label :graduation_year, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= form.number_field :graduation_year, placeholder: "Graduation Year", class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :phone, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= form.text_field :phone, placeholder: "Phone Number", class: "form-control" %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Create Account", class: "btn btn-primary btn-block btn-top-margin" %>
   </div>
 <% end %>

@@ -3,8 +3,9 @@
 
 <h1>Admin</h1>
 
-<h3>Database Tables</h3>
+<h3>Documentation and Database Tables</h3>
 <ul>
+  <li><%= link_to 'Documentation', '/admin/documentation' %></li>
   <li><%= link_to 'Users', users_path %></li>
   <li><%= link_to 'Alumni', alumni_path %></li>
   <li><%= link_to 'Social Media Accounts', media_handles_path %></li>
@@ -37,7 +38,6 @@
         <td><%= user.role.name %></td>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
-        <td><%= user.major.name %></td>
         <td><%= user.graduation_year %></td>
         <td><%= user.email %></td>
         <td><%= user.phone %></td>
@@ -56,5 +56,3 @@
   </tbody>
 </table>
 <% end %>
-
-<br>

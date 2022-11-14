@@ -52,7 +52,8 @@ class User < ApplicationRecord
     unless user
       user = User.create!(first_name: data['first_name'],
                           last_name: data['last_name'],
-                          email: data['email']
+                          email: data['email'],
+                          major_id: 1
                          )
       is_signup = true
     end

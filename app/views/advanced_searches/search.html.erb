@@ -1,41 +1,43 @@
-<h1>Directory</h1>
-<h3>Found <%= @results.size %> matches</h3>
+<div class="container">
 
-<%= link_to "New Advanced Search", advanced_searches_path %>
+  <h1>Directory</h1>
+  <h3>Found <%= @results.size %> matches</h3>
 
-<table>
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Major</th>
-      <th>Graduation year</th>
-      <th>Job Category</th>
-      <th>Job Title</th>
-      <th>Employer</th>
-      <th></th>
-    </tr>
-  </thead>
+  <%= link_to "New Advanced Search", advanced_searches_path %>
 
-  <tbody>
-    <% @results.each do |user| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
-        <td>
-          <% if user.major.present? %>
-            <%= user.major.name %>
-          <% end %>
-        </td>
-        <td><%= user.graduation_year %></td>
-        <td><%= user.alumnus.job_category_name_if_present %></td>
-        <td><%= user.alumnus.job_title %></td>
-        <td><%= user.alumnus.employer %></td>
-        <td><%= link_to 'View', '/advanced_searches/' + String(user.id) %></td>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Major</th>
+        <th>Graduation year</th>
+        <th>Job Category</th>
+        <th>Job Title</th>
+        <th>Employer</th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<p><%= link_to 'Back', Current.previous_path %></p>
+    <tbody>
+      <% @results.each do |user| %>
+        <tr>
+          <td><%= user.first_name %></td>
+          <td><%= user.last_name %></td>
+          <td>
+            <% if user.major.present? %>
+              <%= user.major.name %>
+            <% end %>
+          </td>
+          <td><%= user.graduation_year %></td>
+          <td><%= user.alumnus.job_category_name_if_present %></td>
+          <td><%= user.alumnus.job_title %></td>
+          <td><%= user.alumnus.employer %></td>
+          <td><%= link_to 'View', '/advanced_searches/' + String(user.id) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
+  <p><%= link_to 'Back', Current.previous_path %></p>
+</div>
