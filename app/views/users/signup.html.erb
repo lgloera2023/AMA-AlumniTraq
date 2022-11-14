@@ -18,7 +18,7 @@
             <div class="row d-flex justify-content-center">
                 <div class="fix-width">
 
-                <%= render 'omniauth_callbacks/form', user: @user %>
+                <%= render partial: 'users/omniauth_callbacks/form', user: @user %>
 
                 <%= link_to 'Back', Current.previous_path %>
 
