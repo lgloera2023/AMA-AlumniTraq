@@ -10,7 +10,7 @@
   <p>
     <strong>Major:</strong>
     <% if @user.major.present? %>
-      <%= @user.major.name %>
+      <%= @user.major_name_if_present %>
     <% end %>
   </p>
 
