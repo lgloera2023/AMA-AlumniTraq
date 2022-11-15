@@ -22,7 +22,6 @@
         </div>
 
 
-
         <div class="field">
           <!-- Changed job_category_id to job_category_name -->
           <%= form.select :job_category_id, JobCategory.order(:name).map { |job_category| [job_category.name, job_category.id] }, include_blank: "Job Category", id: "id_of_the_job_category_id_select_box", placeholder:"Job Category" %>
@@ -37,8 +36,9 @@
         </div>
       </div>
 
-      <div class="actions">
+      <div class="hstack gap-3">
         <%= form.submit "Search", class: "btn btn-outline-primary" %>
+        <%= link_to 'Back', '/', class: "btn btn-outline-dark", style:"font-family: adobe-garamond-pro" %>
       </div>
     <% end %>
 </div>

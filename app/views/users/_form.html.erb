@@ -12,68 +12,57 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.text_field :email, placeholder: "Email" %>
   </div>
 
   <% if is_sign_up? %>
     <div class="field">
-      <%= form.label :password %>
-      <%= form.password_field :password %>
+      <%= form.password_field :password, placeholder: "Password" %>
     </div>
 
     <div class="field">
-      <%= form.label :password_confirmation %>
-      <%= form.password_field :password_confirmation %>
+      <%= form.password_field :password_confirmation, placeholder: "Password Confirmation" %>
     </div>
   <%end%>
 
   <% if is_sign_up? %>
     <div class="field">
-      <%= form.label :role_name %>
       <!-- Changed role_id to role_name -->
-      <%= form.select :role_id, Role.unprivileged.order(:name).map { |role| [role.name, role.id] }, include_blank: false, id: "id_of_the_role_id_select_box" %>
+      <%= form.select :role_id, Role.unprivileged.order(:name).map { |role| [role.name, role.id] }, include_blank: "Role Name", id: "id_of_the_role_id_select_box" %>
     </div>
   <%elsif Current.user.is_admin? && session[:user_id] != user.id%>
     <div class="field">
-      <%= form.label :role_name %>
       <!-- Changed role_id to role_name -->
-      <%= form.select :role_id, Role.order(:name).map { |role| [role.name, role.id] }, include_blank: false, id: "id_of_the_role_id_select_box" %>
+      <%= form.select :role_id, Role.order(:name).map { |role| [role.name, role.id] }, include_blank: "Role Name", id: "id_of_the_role_id_select_box" %>
     </div>
   <%else%>
     <div class="field">
-      <%= form.label :role_name %>
       <!-- Changed role_id to role_name -->
-      <%= form.select :role_id, Role.where(id: user.role).order(:name).map { |role| [role.name, role.id] }, include_blank: false, id: "id_of_the_role_id_select_box" %>
+      <%= form.select :role_id, Role.where(id: user.role).order(:name).map { |role| [role.name, role.id] }, include_blank: "Role Name", id: "id_of_the_role_id_select_box" %>
     </div>
   <% end %>
 
   <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name%>
+    <%= form.text_field :first_name, placeholder: "First Name"%>
   </div>
   <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
+    <%= form.text_field :last_name, placeholder: "Last Name" %>
   </div>
 
   <div class="field">
-    <%= form.label :major_name %>
     <!-- Changed major_id to major_name -->
-    <%= form.select :major_id, Major.order(:name).map { |major| [major.name, major.id] }, include_blank: false, id: "id_of_the_major_id_select_box" %>
+    <%= form.select :major_id, Major.order(:name).map { |major| [major.name, major.id] }, include_blank: "Major", id: "id_of_the_major_id_select_box" %>
   </div>
 
   <div class="field">
-    <%= form.label :graduation_year %>
-    <%= form.number_field :graduation_year %>
+    <%= form.number_field :graduation_year, placeholder: "Graduation Year" %>
   </div>
 
   <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone %>
+    <%= form.text_field :phone, placeholder: "Phone" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Update", class: "btn btn-outline-primary"%>
   </div>
 <% end %>

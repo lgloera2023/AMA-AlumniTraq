@@ -51,7 +51,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.update(user_params)
         if session[:user_id] == @user.id
-          format.html { redirect_to(user_index_path, notice: 'Profile was successfully updated.') }
+          format.html { redirect_to(user_path, notice: 'Profile was successfully updated.') }
         else
           format.html { redirect_to(admin_index_path, notice: 'User was successfully updated.') }
         end

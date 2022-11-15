@@ -25,16 +25,14 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :platform %>
-    <%= form.select :platform, ["Facebook", "GitHub", "GroupMe", "Instagram", "LinkedIn", "Pinterest", "Reddit", "Snapchat", "TikTok", "Twitter", "WhatsApp", "YouTube", "Other"], selected: "Other" %>
+    <%= form.select :platform, ["Facebook", "GitHub", "GroupMe", "Instagram", "LinkedIn", "Pinterest", "Reddit", "Snapchat", "TikTok", "Twitter", "WhatsApp", "YouTube", "Other"], selected: "Other", include_blank: "Platform" %>
   </div>
 
   <div class="field">
-    <%= form.label :link %>
-    <%= form.url_field :link %>
+    <%= form.url_field :link, placeholder: "Link" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Update", class: "btn btn-outline-primary" %>
   </div>
 <% end %>
