@@ -1,59 +1,60 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<!-- Show the user their profile photo -->
-<% if Current.user.is_alumnus? && Current.user.alumnus && Current.user.alumnus.image.attached? %>
-  <%= image_tag(Current.user.alumnus.image_as_thumbnail) %>
-<% end %>
-
-<!-- Only show ID to admin -->
-<% if @user.role.id == 1 %>
-  <p>
-    <strong>ID:</strong>
-    <%= @user.id %>
-  </p>
-<% end %>
-
-<p>
-  <strong>Role name:</strong>
-  <%= @user.role.name %>
-</p>
-
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
-
-<p>
-  <strong>Major:</strong>
-  <%= @user.major_name_if_present %>
-</p>
-
-<p>
-  <strong>Graduation year:</strong>
-  <%= @user.graduation_year %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @user.phone %>
-</p>
-
-<p>
-  <%= link_to 'Edit Account Details', edit_user_path(@user), class: "button-89 btn-top-margin no-underline" %>
-  <% if Current.user.is_alumnus? %>
-      <%= link_to 'View Alumnus Info', Current.user.alumnus, class: "button-89 btn-top-margin no-underline" %>
-      <%= link_to 'Social Media Handles', media_handles_path, class: "button-89 btn-top-margin no-underline" %>
+  <!-- Show the user their profile photo -->
+  <% if Current.user.is_alumnus? && Current.user.alumnus && Current.user.alumnus.image.attached? %>
+    <%= image_tag(Current.user.alumnus.image_as_thumbnail) %>
   <% end %>
-</p>
 
-<p><%= link_to 'Back', Current.previous_path %></p>
+  <!-- Only show ID to admin -->
+  <% if @user.role.id == 1 %>
+    <p>
+      <strong>ID:</strong>
+      <%= @user.id %>
+    </p>
+  <% end %>
+
+  <p>
+    <strong>Role name:</strong>
+    <%= @user.role.name %>
+  </p>
+
+  <p>
+    <strong>First name:</strong>
+    <%= @user.first_name %>
+  </p>
+
+  <p>
+    <strong>Last name:</strong>
+    <%= @user.last_name %>
+  </p>
+
+  <p>
+    <strong>Major:</strong>
+    <%= @user.major.name %>
+  </p>
+
+  <p>
+    <strong>Graduation year:</strong>
+    <%= @user.graduation_year %>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </p>
+
+  <p>
+    <strong>Phone:</strong>
+    <%= @user.phone %>
+  </p>
+
+  <p><%= link_to 'Edit Account Details', edit_user_path(@user) %></p>
+  <% if Current.user.is_alumnus? %>
+    <p>
+      <%= link_to 'View Alumnus Info', Current.user.alumnus %> |
+      <%= link_to 'Social Media Handles', media_handles_path %>
+    </p>
+  <% end %>
+  <p><%= link_to 'Back', Current.previous_path %></p>
+</div>

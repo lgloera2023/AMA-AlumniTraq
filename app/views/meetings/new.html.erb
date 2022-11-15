@@ -2,8 +2,11 @@
 
   <h1>New Meeting</h1>
 
-  <%= render 'form', meeting: @meeting %>
+  <div class="col-lg-8">
 
-  <%= link_to 'Back', Current.previous_path %>
+    <%= render 'form', meeting: @meeting %>
+
+    <%= link_to 'Back', Current.previous_path %>
+  </div>
 
 </div>
