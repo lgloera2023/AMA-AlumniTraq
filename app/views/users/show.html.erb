@@ -8,10 +8,12 @@
         <div class="col col-lg-6 mb-4 mb-lg-0">
           <div class="card mb-3" style="border-radius: .5rem;">
             <div class="row g-0">
-              <div class="col-md-6 gradient-custom text-center text-black mt-4"
+              <div class="col-md-6 gradient-custom text-center text-black pt-4"
                 style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                <%= link_to image_tag(@user.alumnus.image_as_thumbnail), @user.alumnus.image, class:"img-fluid my-5", style:"width: 80px" if @user.alumnus.image.attached?%>
-                <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+                <% if @user.is_alumnus? %>
+                  <%= link_to image_tag(@user.alumnus.image_as_thumbnail), @user.alumnus.image, class:"img-fluid my-5", style:"width: 80px" if @user.alumnus.image.attached?%>
+                <% end %>
+                  <h1><%= @user.first_name %> <%= @user.last_name %></h1>
                 <!-- Only show ID to admin -->
                 <% if @user.role.id == 1 %>
                   <p>
