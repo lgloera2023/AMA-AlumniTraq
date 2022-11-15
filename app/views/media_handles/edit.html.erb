@@ -1,6 +1,10 @@
-<h1>Editing Media Handle</h1>
+<div class = "container">
+    <h1>Editing Media Handle</h1>
 
-<%= render 'form', media_handle: @media_handle %>
+    <%= render 'form', media_handle: @media_handle %>
 
-<%= link_to 'Show', @media_handle %> |
-<%= link_to 'Back', Current.previous_path %>
+    <div class="hstack gap-3 mb-4">
+        <%= link_to 'Show', @media_handle, class: "btn btn-outline-primary" %> 
+        <%= link_to 'Back', Current.previous_path, class: "btn btn-outline-dark" %>
+    </div>
+</div>
