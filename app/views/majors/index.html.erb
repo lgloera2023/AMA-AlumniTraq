@@ -1,27 +1,54 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Majors</h1>
+<div class="container">
+    <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <h1>Majors</h1>
 
-  <tbody>
-    <% @majors.each do |major| %>
-      <tr>
-        <td><%= major.name %></td>
-        <td><%= link_to 'Show', major %></td>
-        <td><%= link_to 'Edit', edit_major_path(major) %></td>
-        <td><%= link_to 'Destroy', major, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class="container-fluid flex-grow-1 d-flex">
+        <div class="row flex-fill flex-column flex-sm-row">
+            <div class="col-sm-3 col-md-2 sidebar flex-shrink-1 bg-light pt-3" id="Navbar">
+                <ul class="nav flex-lg-column">
+                    <h10 style = "font-family: adobe-garamond-pro;"><strong>Documentation and Database Tables</strong></h10>
+                    <li><%= link_to 'Admin', admin_index_path, class:"nav-link" %></li>
+                    <li><%= link_to 'Documentation', '/admin/documentation', class:"nav-link" %></li>
+                    <li><%= link_to 'Users', users_path, class:"nav-link" %></li>
+                    <li><%= link_to 'Alumni', alumni_path, class:"nav-link" %></li>
+                    <li><%= link_to 'Social Media Accounts', media_handles_path, class:"nav-link" %></li>
+                    <li><%= link_to 'Events', meetings_path, class:"nav-link" %></li>
+                    <li><%= link_to 'Event Attendees', event_attendees_path, class:"nav-link" %></li>
+                    <li><%= link_to 'Roles', roles_path, class:"nav-link" %></li>
+                    <li><%= link_to 'Majors', majors_path, class:"nav-link" %></li>
+                    <li><%= link_to 'Job Categories', job_categories_path, class:"nav-link" %></li>
+                </ul>
+            </div>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 flex-grow-1 py-3">
 
-<br>
+              <h1>Majors</h1>
 
-<%= link_to 'New Major', new_major_path %>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th colspan="3"></th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% @majors.each do |major| %>
+                    <tr>
+                      <td><%= major.name %></td>
+                      <td><%= link_to 'Show', major %></td>
+                      <td><%= link_to 'Edit', edit_major_path(major) %></td>
+                      <td><%= link_to 'Destroy', major, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+
+              <br>
+
+              <%= link_to 'New Major', new_major_path %>
+            </div>
+        </div>
+    </div>
+</div>

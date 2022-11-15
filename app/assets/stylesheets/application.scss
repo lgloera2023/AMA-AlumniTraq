@@ -15,6 +15,8 @@
  *= require simple_calendar
  */
 
+@import 'dark-mode';
+
 body {
     background-color: #fff;
     color: #333;
@@ -101,4 +103,6 @@ nav li form input:hover {
     table-layout: fixed;
 }
 
-@import 'dark-mode';
+.gradient-custom {
+    background: linear-gradient(to right bottom, rgb(15, 164, 223), rgb(249, 133, 253))
+}
