@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-11-14T21:56:56+00:00">2022-11-14T21:56:56+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-11-15T03:48:04+00:00">2022-11-15T03:48:04+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -43,8 +43,8 @@
   </div>
 
   <div class="t-line-summary">
-    <b>1706</b> relevant lines,
-    <span class="green"><b>1622</b> lines covered</span> and
+    <b>1707</b> relevant lines,
+    <span class="green"><b>1623</b> lines covered</span> and
     <span class="red"><b>84</b> lines missed. </span>
     (<span class="green">
   95.08%
@@ -160,12 +160,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#aa1e0243e769732e1ef410c615f5053af22cb407" class="src_link" title="app/controllers/users_controller.rb">app/controllers/users_controller.rb</a></td>
-            <td class="red strong cell--number t-file__coverage">68.60 %</td>
-            <td class="cell--number">167</td>
-            <td class="cell--number">86</td>
-            <td class="cell--number">59</td>
+            <td class="red strong cell--number t-file__coverage">68.97 %</td>
+            <td class="cell--number">171</td>
+            <td class="cell--number">87</td>
+            <td class="cell--number">60</td>
             <td class="cell--number">27</td>
-            <td class="cell--number">1.63</td>
+            <td class="cell--number">1.68</td>
             
           </tr>
         
@@ -8854,7 +8854,7 @@
     <h3>app/controllers/users_controller.rb</h3>
     <h4>
       <span class="red">
-  68.6%
+  68.97%
 </span>
 
       lines covered
@@ -8863,8 +8863,8 @@
     
 
     <div class="t-line-summary">
-      <b>86</b> relevant lines.
-      <span class="green"><b>59</b> lines covered</span> and
+      <b>87</b> relevant lines.
+      <span class="green"><b>60</b> lines covered</span> and
       <span class="red"><b>27</b> lines missed.</span>
     </div>
 
@@ -9998,8 +9998,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="10" data-linenumber="103">
-            <span class="hits">10</span>
+          <li class="covered" data-hits="13" data-linenumber="103">
+            <span class="hits">13</span>
             
 
             
@@ -10554,7 +10554,7 @@
 
             
 
-            <code class="ruby">    params_role_id = Integer(user_params[:role_id])</code>
+            <code class="ruby">    to_alumnus = false</code>
           </li>
         </div>
       
@@ -10565,111 +10565,12 @@
 
             
 
-            <code class="ruby">    user_role_id = @user.role.id</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="3" data-linenumber="155">
-            <span class="hits">3</span>
-            
-
-            
-
-            <code class="ruby">    to_alumnus = false</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="3" data-linenumber="156">
-            <span class="hits">3</span>
-            
-
-            
-
             <code class="ruby">    from_alumnus = false</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="157">
-            <span class="hits">3</span>
-            
-
-            
-
-            <code class="ruby">    if params_role_id</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="3" data-linenumber="158">
-            <span class="hits">3</span>
-            
-
-            
-
-            <code class="ruby">      if params_role_id == 3 &amp;&amp; user_role_id != 3</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="159">
-            
-            
-
-            
-
-            <code class="ruby">        to_alumnus = true</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="3" data-linenumber="160">
-            <span class="hits">3</span>
-            
-
-            
-
-            <code class="ruby">      elsif params_role_id != 3 &amp;&amp; user_role_id == 3</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="161">
-            
-            
-
-            
-
-            <code class="ruby">        from_alumnus = true</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="162">
-            
-            
-
-            
-
-            <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="163">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="164">
+          <li class="never" data-hits="" data-linenumber="155">
             
             
 
@@ -10680,13 +10581,112 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="165">
+          <li class="covered" data-hits="3" data-linenumber="156">
             <span class="hits">3</span>
             
 
             
 
-            <code class="ruby">    { to_alumnus: to_alumnus, from_alumnus: from_alumnus }</code>
+            <code class="ruby">    if user_params[:role_id]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="3" data-linenumber="157">
+            <span class="hits">3</span>
+            
+
+            
+
+            <code class="ruby">      params_role_id = Integer(user_params[:role_id])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="3" data-linenumber="158">
+            <span class="hits">3</span>
+            
+
+            
+
+            <code class="ruby">      user_role_id = @user.role.id</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="159">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="3" data-linenumber="160">
+            <span class="hits">3</span>
+            
+
+            
+
+            <code class="ruby">      if params_role_id</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="3" data-linenumber="161">
+            <span class="hits">3</span>
+            
+
+            
+
+            <code class="ruby">        if params_role_id == 3 &amp;&amp; user_role_id != 3</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="162">
+            
+            
+
+            
+
+            <code class="ruby">          to_alumnus = true</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="3" data-linenumber="163">
+            <span class="hits">3</span>
+            
+
+            
+
+            <code class="ruby">        elsif params_role_id != 3 &amp;&amp; user_role_id == 3</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="164">
+            
+            
+
+            
+
+            <code class="ruby">          from_alumnus = true</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="165">
+            
+            
+
+            
+
+            <code class="ruby">        end</code>
           </li>
         </div>
       
@@ -10697,12 +10697,56 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
         <div>
           <li class="never" data-hits="" data-linenumber="167">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="168">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="3" data-linenumber="169">
+            <span class="hits">3</span>
+            
+
+            
+
+            <code class="ruby">    { to_alumnus: to_alumnus, from_alumnus: from_alumnus }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="170">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="171">
             
             
 
