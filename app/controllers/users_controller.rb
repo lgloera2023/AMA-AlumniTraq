@@ -150,15 +150,19 @@ class UsersController < ApplicationController
   end
 
   def check_role_change
-    params_role_id = Integer(user_params[:role_id])
-    user_role_id = @user.role.id
     to_alumnus = false
     from_alumnus = false
-    if params_role_id
-      if params_role_id == 3 && user_role_id != 3
-        to_alumnus = true
-      elsif params_role_id != 3 && user_role_id == 3
-        from_alumnus = true
+
+    if user_params[:role_id]
+      params_role_id = Integer(user_params[:role_id])
+      user_role_id = @user.role.id
+
+      if params_role_id
+        if params_role_id == 3 && user_role_id != 3
+          to_alumnus = true
+        elsif params_role_id != 3 && user_role_id == 3
+          from_alumnus = true
+        end
       end
     end
 
