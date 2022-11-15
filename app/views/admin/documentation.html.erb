@@ -1,261 +1,290 @@
-<h1>Documentation</h1>
 
-<h2>Jump to...</h2>
-<ul>
-    <li><a href="#admin-capabilities">What Can I Do as an Admin?</a></li>
-    <li><a href="#admin-duties">What Are the Duties of an Admin?</a></li>
-    <li><a href="#admin-reset">How to Reset the App</a></li>
-    <li><a href="#admin-oauth">Oauth Configurations</a></li>
-    <li><a href="#admin-changes">Can I Change Something on the App?</a></li>
-    <li><a href="#admin-recover">Can't Recover from Fatal Error. What Can I Do?</a></li>
-</ul>
+<div class="container">
+    <p id="notice"><%= notice %></p>
 
-<hr>
-<article id="admin-capabilities">
-    <h3>What Can I Do as an Admin?</h3>
-    <br>
-    <h4>Superuser</h4>
-    <p>
-        As the admin, you have no restrictions on the app. You can do almost 
-        anything your heart desires. The only things you can't do as an admin 
-        is demote yourself from admin or delete the four critical roles needed 
-        by the app. You can't demote yourself to avoid accidentally leaving 
-        the app without an admin. As for the roles, without the core admin, 
-        member, alumnus, and event planner roles, the app simply won't work. 
-        Thus, you don't have the power to remove them and destroy the app. 
-        Everything else is fair game though. You are a superuser. You can 
-        create, read, update, and delete anything. But with great power 
-        comes great responsibility. Make sure your admins are trustworthy.
-    </p>
+    <h1>Documentation</h1>
 
-    <h4>What You Can Do that Others Can't</h4>
-    <p>
-        </p><ul>
-            <li>View admin page</li>
-            <li>View database tables in the app</li>
-            <li>Approve new users</li>
-            <li>Create, view, update, and delete users other than yourself</li>
-            <li>Add and assign the roles of users</li>
-            <li>
-                Create, view, update, and delete alumni (users can still view 
-                alumni in the directory and alumni can edit their profiles)
-            </li>
-            <li>
-                Create, view, update, and delete events on the calendar 
-                (event planners can do this too)
-            </li>
-        </ul>
-    <p></p>
-</article>
+    <div class="container-fluid flex-grow-1 d-flex">
+        <div class="row flex-fill flex-column flex-sm-row">
+            <div class="col-sm-3 col-md-2 sidebar flex-shrink-1 bg-light pt-3" id="Navbar">
+                <ul class="nav flex-lg-column">
+                    <h10 style = "font-family: adobe-garamond-pro;"><strong>Documentation and Database Tables</strong></h10>
+                    <li><%= link_to 'Admin', admin_index_path, class:"nav-link" %></li>
+                    <li><%= link_to 'Documentation', '/admin/documentation', class:"nav-link" %></li>
+                    <li><%= link_to 'Users', users_path, class:"nav-link" %></li>
+                    <li><%= link_to 'Alumni', alumni_path, class:"nav-link" %></li>
+                    <li><%= link_to 'Social Media Accounts', media_handles_path, class:"nav-link" %></li>
+                    <li><%= link_to 'Events', meetings_path, class:"nav-link" %></li>
+                    <li><%= link_to 'Event Attendees', event_attendees_path, class:"nav-link" %></li>
+                    <li><%= link_to 'Roles', roles_path, class:"nav-link" %></li>
+                    <li><%= link_to 'Majors', majors_path, class:"nav-link" %></li>
+                    <li><%= link_to 'Job Categories', job_categories_path, class:"nav-link" %></li>
+                </ul>
+            </div>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 flex-grow-1 py-3">
 
-<hr>
-<article id="admin-duties">
-    <h3>What Are the Duties of an Admin?</h3>
-    <br>
-    <h4>Approve New Users</h4>
-    <p>
-        This will be one of your primary duties as an admin. Whenever someone 
-        logs in to the app for the first time, an account will be created for 
-        them. They will be able to use the app immediately but will marked as 
-        not yet approved. There information will pop up on the admin page prompting 
-        you to approve or remove the new user. You can also edit their information 
-        before approving too. If you choose to remove them, their account will 
-        be removed, but they can still sign up again if they want.
-    </p>
+                <h2>Jump to...</h2>
+                <ul>
+                    <li><a href="#admin-capabilities">What Can I Do as an Admin?</a></li>
+                    <li><a href="#admin-duties">What Are the Duties of an Admin?</a></li>
+                    <li><a href="#admin-reset">How to Reset the App</a></li>
+                    <li><a href="#admin-oauth">Oauth Configurations</a></li>
+                    <li><a href="#admin-changes">Can I Change Something on the App?</a></li>
+                    <li><a href="#admin-recover">Can't Recover from Fatal Error. What Can I Do?</a></li>
+                </ul>
 
-    <h4>Manage Roles</h4>
-    <p>
-        A secondary task admins have is to elevate users from an unprivileged 
-        member to event planner or another admin. It is advised you adhere to the 
-        principle of least privilege. Don't just elevate people on all over the 
-        place; that would be a security risk. Whenever someone isn't organizing 
-        events for the organization, demote them back to normal member. When 
-        an admin or event planner graduates, they will become an alumnus and 
-        lose their privilege as a result. However, if an admin or event planner 
-        steps down from their position or leaves the organization for whatever 
-        reason, either demote them to member or delete their account.
-    </p>
+                <hr>
+                <article id="admin-capabilities">
+                    <h3>What Can I Do as an Admin?</h3>
+                    <br>
+                    <h4>Superuser</h4>
+                    <p>
+                        As the admin, you have no restrictions on the app. You can do almost 
+                        anything your heart desires. The only things you can't do as an admin 
+                        is demote yourself from admin or delete the four critical roles needed 
+                        by the app. You can't demote yourself to avoid accidentally leaving 
+                        the app without an admin. As for the roles, without the core admin, 
+                        member, alumnus, and event planner roles, the app simply won't work. 
+                        Thus, you don't have the power to remove them and destroy the app. 
+                        Everything else is fair game though. You are a superuser. You can 
+                        create, read, update, and delete anything. But with great power 
+                        comes great responsibility. Make sure your admins are trustworthy.
+                    </p>
 
-    <h4>Manage Majors and Job Categories</h4>
-    <p>
-        You shouldn't have to do this, but you can update the list of majors and 
-        job categories if you need to. Say a new major is offered at Texas A&amp;M, 
-        then you could go to the Majors table from the admin page and then 
-        create a new major. The same goes for job categories. The majors table 
-        is preloaded with all of the majors currently offered by Texas A&amp;M. The 
-        job categories are preloaded from the ones LinkedIn uses.
-    </p>
+                    <h4>What You Can Do that Others Can't</h4>
+                    <p>
+                        </p><ul>
+                            <li>View admin page</li>
+                            <li>View database tables in the app</li>
+                            <li>Approve new users</li>
+                            <li>Create, view, update, and delete users other than yourself</li>
+                            <li>Add and assign the roles of users</li>
+                            <li>
+                                Create, view, update, and delete alumni (users can still view 
+                                alumni in the directory and alumni can edit their profiles)
+                            </li>
+                            <li>
+                                Create, view, update, and delete events on the calendar 
+                                (event planners can do this too)
+                            </li>
+                        </ul>
+                    <p></p>
+                </article>
 
-    <h4>Periodically Create a Database Backup</h4>
-    <p>
-        Heroku provides the resource of creating manual backups of the database 
-        that you can use to restore the database should that be necessary. The 
-        documentation can be found 
-        <a href="https://devcenter.heroku.com/articles/heroku-postgres-backups">here</a>.
-        To create a backup, follow the steps:
-        <ol>
-            <li>Login to Heroku and navigate to the app dashboard</li>
-            <li>Click on the "Resources" tab</li>
-            <li>Click on the "Heroku Postgres" link at the bottom.</li>
-            <li>Click on the "Durability" tab.</li>
-            <li>Click on the "Create Manual Backup" button.</li>
-            <li>You can delete old backups here too.</li>
-        </ol>
-    </p>
+                <hr>
+                <article id="admin-duties">
+                    <h3>What Are the Duties of an Admin?</h3>
+                    <br>
+                    <h4>Approve New Users</h4>
+                    <p>
+                        This will be one of your primary duties as an admin. Whenever someone 
+                        logs in to the app for the first time, an account will be created for 
+                        them. They will be able to use the app immediately but will marked as 
+                        not yet approved. There information will pop up on the admin page prompting 
+                        you to approve or remove the new user. You can also edit their information 
+                        before approving too. If you choose to remove them, their account will 
+                        be removed, but they can still sign up again if they want.
+                    </p>
 
-    <h4>Keep the App Afloat</h4>
-    <p>
-        As a catch all, your job is to make sure the app doesn't crash and burn. 
-        Overall, this app doesn't require much upkeep and will essentially run 
-        on its own. Still, just make sure it doesn't die.
-    </p>
-</article>
+                    <h4>Manage Roles</h4>
+                    <p>
+                        A secondary task admins have is to elevate users from an unprivileged 
+                        member to event planner or another admin. It is advised you adhere to the 
+                        principle of least privilege. Don't just elevate people on all over the 
+                        place; that would be a security risk. Whenever someone isn't organizing 
+                        events for the organization, demote them back to normal member. When 
+                        an admin or event planner graduates, they will become an alumnus and 
+                        lose their privilege as a result. However, if an admin or event planner 
+                        steps down from their position or leaves the organization for whatever 
+                        reason, either demote them to member or delete their account.
+                    </p>
 
-<hr>
-<article id="admin-reset">
-    <h3>How to Reset the App</h3>
-    <br>
-    <ol>
-        <li>Login to Heroku and navigate to the app dashboard.</li>
-        <li>Click on the "More" dropdown tab.</li>
-        <li>Click on "Restart all dynos".</li>
-        <li>Click on the "More" dropdown tab again.</li>
-        <li>Click on "View logs" to make sure the app launches successfully.</li>
-    </ol>
-</article>
+                    <h4>Manage Majors and Job Categories</h4>
+                    <p>
+                        You shouldn't have to do this, but you can update the list of majors and 
+                        job categories if you need to. Say a new major is offered at Texas A&amp;M, 
+                        then you could go to the Majors table from the admin page and then 
+                        create a new major. The same goes for job categories. The majors table 
+                        is preloaded with all of the majors currently offered by Texas A&amp;M. The 
+                        job categories are preloaded from the ones LinkedIn uses.
+                    </p>
 
-<hr>
-<article id="admin-oauth">
-    <h3>Oauth Configurations</h3>
-    <br>
-    <h4>How does it work?</h4>
-    <p>
-        At a very high level, the app uses a pair of API key and secret for each 
-        Oauth provider to check if the user on the device happens to be logged in 
-        to the provider. If they are, then the provider sends the app the user's 
-        email, first name, and last name. The app then logs in the user if finds 
-        a matching email in the database. If not, then the app creates a new user 
-        with that email and then logs them in.
-    </p>
+                    <h4>Periodically Create a Database Backup</h4>
+                    <p>
+                        Heroku provides the resource of creating manual backups of the database 
+                        that you can use to restore the database should that be necessary. The 
+                        documentation can be found 
+                        <a href="https://devcenter.heroku.com/articles/heroku-postgres-backups">here</a>.
+                        To create a backup, follow the steps:
+                        <ol>
+                            <li>Login to Heroku and navigate to the app dashboard</li>
+                            <li>Click on the "Resources" tab</li>
+                            <li>Click on the "Heroku Postgres" link at the bottom.</li>
+                            <li>Click on the "Durability" tab.</li>
+                            <li>Click on the "Create Manual Backup" button.</li>
+                            <li>You can delete old backups here too.</li>
+                        </ol>
+                    </p>
 
-    <h4>How do I access Facebook, Google, or LinkedIn Developer?</h4>
-    <p>
-        The app is registered for each Oauth provider under alumnitraq.aggiemensalliance@gmail.com.
-        If you wish to manage anything on the Oauth like the consent screen, 
-        the privacy policy, get new API key(s) and secret(s), etc., then you 
-        would log in to the provider, navigate to the developer page, and then 
-        view the app by clicking on "My Apps" wherever that button may be. Here 
-        are the links to their sites:
-        <ul>
-            <li><a href="https://developers.facebook.com/">Facebook Developers</a></li>
-            <li><a href="https://developers.google.com/">Google Developers</a></li>
-            <li><a href="https://developer.linkedin.com/">LinkedIn Developer</a></li>
-        </ul>
-    </p>
+                    <h4>Keep the App Afloat</h4>
+                    <p>
+                        As a catch all, your job is to make sure the app doesn't crash and burn. 
+                        Overall, this app doesn't require much upkeep and will essentially run 
+                        on its own. Still, just make sure it doesn't die.
+                    </p>
+                </article>
 
-    <h4>How do I update new Oauth API key(s) and secret(s)?</h4>
-    <p>
-        This is recommended to be avoided if possible as the keys and secrets are 
-        stored in an encrypted credentials.yml.enc file, which adds substantial 
-        complexity to getting new keys/secrets. Nevertheless, here are the steps:
-        <ol>
-            <li>Login to Heroku and navigate to the "Deploy" tab.</li>
-            <li>Make sure you have a GitHub repo connected to the app.</li>
-            <li>
-                If you don't have a repo connected, then fork the 
-                <a href="https://github.com/lgloera2023/AMA-AlumniTraq">original</a>.
-            </li>
-            <li>Follow the README instructions to download the Docker image and start the app locally.</li>
-            <li>Once the container is running, execute "EDITOR=vim rails credentials:edit".</li>
-            <li>
-                If you don't know how to use VIM, watch the first 3 minutes of this 
-                <a href="https://www.youtube.com/watch?v=ggSyF1SVFr4&t=42s">tutorial</a> 
-                to get the basics.
-            </li>
-            <li>Transfer over the corresponding new API key(s) and secret(s).</li>
-            <li>Save and exit</li>
-            <li>Run the typical "git add *", "git commit -m '...'", and "git push origin main".</li>
-            <li>Go back to Heroku and navigate to the "Deploy" tab.</li>
-            <li>
-                Make sure the build/deployment succeeds. If you have automatic deployments
-                setup with your branch, then all you have to do is watch. If not, then you will 
-                have to scroll down to the bottom of the page and manually deploy the branch.
-            </li>
-            <li>Now the keys and secrets are updated and everything is swell.</li>
-        </ol>
-    </p>
-</article>
+                <hr>
+                <article id="admin-reset">
+                    <h3>How to Reset the App</h3>
+                    <br>
+                    <ol>
+                        <li>Login to Heroku and navigate to the app dashboard.</li>
+                        <li>Click on the "More" dropdown tab.</li>
+                        <li>Click on "Restart all dynos".</li>
+                        <li>Click on the "More" dropdown tab again.</li>
+                        <li>Click on "View logs" to make sure the app launches successfully.</li>
+                    </ol>
+                </article>
 
-<hr>
-<article id="admin-changes">
-    <h3>Can I Change Something on the App?</h3>
-    <br>
-    <h4>If You Connect the App to a GitHub Repo, Yes</h4>
-    <p>
-        In order to make any changes to the app on your own, then you would 
-        need to change the code locally on your machine, push the changes 
-        to a GitHub repository, and then deploy the changes on the app. 
-    </p>
-</article>
+                <hr>
+                <article id="admin-oauth">
+                    <h3>Oauth Configurations</h3>
+                    <br>
+                    <h4>How does it work?</h4>
+                    <p>
+                        At a very high level, the app uses a pair of API key and secret for each 
+                        Oauth provider to check if the user on the device happens to be logged in 
+                        to the provider. If they are, then the provider sends the app the user's 
+                        email, first name, and last name. The app then logs in the user if finds 
+                        a matching email in the database. If not, then the app creates a new user 
+                        with that email and then logs them in.
+                    </p>
 
-<hr>
-<article id="admin-recover">
-    <h3>Can't Recover from Fatal Error. What Can I Do?</h3>
-    <br>
-    <h4>Read the Logs</h4>
-    <p>
-        Look at the logs to get an idea of what went wrong. You can see the 
-        logs by logging in to Heroku, clicking on the "More" dropdown, and 
-        then click "View logs".
-    </p>
+                    <h4>How do I access Facebook, Google, or LinkedIn Developer?</h4>
+                    <p>
+                        The app is registered for each Oauth provider under alumnitraq.aggiemensalliance@gmail.com.
+                        If you wish to manage anything on the Oauth like the consent screen, 
+                        the privacy policy, get new API key(s) and secret(s), etc., then you 
+                        would log in to the provider, navigate to the developer page, and then 
+                        view the app by clicking on "My Apps" wherever that button may be. Here 
+                        are the links to their sites:
+                        <ul>
+                            <li><a href="https://developers.facebook.com/">Facebook Developers</a></li>
+                            <li><a href="https://developers.google.com/">Google Developers</a></li>
+                            <li><a href="https://developer.linkedin.com/">LinkedIn Developer</a></li>
+                        </ul>
+                    </p>
 
-    <h4>Restart the App</h4>
-    <p>
-        This is the equivalent to turning something off and then back on again. 
-        See the section on <a href="#admin-reset">How to Reset the App</a>.
-    </p>
+                    <h4>How do I update new Oauth API key(s) and secret(s)?</h4>
+                    <p>
+                        This is recommended to be avoided if possible as the keys and secrets are 
+                        stored in an encrypted credentials.yml.enc file, which adds substantial 
+                        complexity to getting new keys/secrets. Nevertheless, here are the steps:
+                        <ol>
+                            <li>Login to Heroku and navigate to the "Deploy" tab.</li>
+                            <li>Make sure you have a GitHub repo connected to the app.</li>
+                            <li>
+                                If you don't have a repo connected, then fork the 
+                                <a href="https://github.com/lgloera2023/AMA-AlumniTraq">original</a>.
+                            </li>
+                            <li>Follow the README instructions to download the Docker image and start the app locally.</li>
+                            <li>Once the container is running, execute "EDITOR=vim rails credentials:edit".</li>
+                            <li>
+                                If you don't know how to use VIM, watch the first 3 minutes of this 
+                                <a href="https://www.youtube.com/watch?v=ggSyF1SVFr4&t=42s">tutorial</a> 
+                                to get the basics.
+                            </li>
+                            <li>Transfer over the corresponding new API key(s) and secret(s).</li>
+                            <li>Save and exit</li>
+                            <li>Run the typical "git add *", "git commit -m '...'", and "git push origin main".</li>
+                            <li>Go back to Heroku and navigate to the "Deploy" tab.</li>
+                            <li>
+                                Make sure the build/deployment succeeds. If you have automatic deployments
+                                setup with your branch, then all you have to do is watch. If not, then you will 
+                                have to scroll down to the bottom of the page and manually deploy the branch.
+                            </li>
+                            <li>Now the keys and secrets are updated and everything is swell.</li>
+                        </ol>
+                    </p>
+                </article>
 
-    <h4>Check the Database</h4>
-    <p>
-        If you keep getting an error and can't view a page with information from 
-        the database, then something could be inconsistent with the database.
-        <ol>
-            <li>Login to Heroku and navigate to the "Resources" tab.</li>
-            <li>Click on the "Heroku Postgres" link at the bottom.</li>
-            <li>Check the health of the database in the "Overview" pane.</li>
-        </ol>
-        If everything is good there, then you can open a PSQL console to the database 
-        using <a href="https://devcenter.heroku.com/articles/heroku-cli">Heroku CLI</a>. 
-        <ul>
-            <li>Execute `heroku login` in the terminal and follow the instructions to login</li>
-            <li>
-                Connect to the database by executing: 
-                `heroku pg:psql -a "alumnitraq`
-            </li>
-            <li>List out all the tables by executing `\d`</li>
-            <li>Check if any foreign keys are violated for some reason</li>
-            <li>
-                You have pretty much absolute/unchecked privilege here, 
-                so be careful not to delete everything or something.
-            </li>
-        </ul>
-        Worst case scenario, you just reset the database and then restore 
-        from the seed or a database backup.
-        <ol>
-            <li>From the database "Overview" pane, click on the "Settings" tab.</li>
-            <li>Click on "Reset Database..."</li>
-            <li>Confirm you want to reset the database by entering the name of the app</li>
-            <li>In a terminal on your computer, run `heroku pg:backups:restore -a alumnitraq`</li>
-            <li>Confirm the database has been restored to the most recent backup</li>
-            <li>If you don't have a backup, the run `heroku run rails db:seed -a alumnitraq` in the terminal</li>
-        </ol>
-    </p>
+                <hr>
+                <article id="admin-changes">
+                    <h3>Can I Change Something on the App?</h3>
+                    <br>
+                    <h4>If You Connect the App to a GitHub Repo, Yes</h4>
+                    <p>
+                        In order to make any changes to the app on your own, then you would 
+                        need to change the code locally on your machine, push the changes 
+                        to a GitHub repository, and then deploy the changes on the app. 
+                    </p>
+                </article>
 
-    <h4>Troubleshooting</h4>
-    <p>
-        If the steps above don't check out, then try to Google what you 
-        can see and read some 
-        <a href="https://devcenter.heroku.com/categories/reference">documentation</a> 
-        to get a better idea. Good luck.
-    </p>
-</article>
+                <hr>
+                <article id="admin-recover">
+                    <h3>Can't Recover from Fatal Error. What Can I Do?</h3>
+                    <br>
+                    <h4>Read the Logs</h4>
+                    <p>
+                        Look at the logs to get an idea of what went wrong. You can see the 
+                        logs by logging in to Heroku, clicking on the "More" dropdown, and 
+                        then click "View logs".
+                    </p>
+
+                    <h4>Restart the App</h4>
+                    <p>
+                        This is the equivalent to turning something off and then back on again. 
+                        See the section on <a href="#admin-reset">How to Reset the App</a>.
+                    </p>
+
+                    <h4>Check the Database</h4>
+                    <p>
+                        If you keep getting an error and can't view a page with information from 
+                        the database, then something could be inconsistent with the database.
+                        <ol>
+                            <li>Login to Heroku and navigate to the "Resources" tab.</li>
+                            <li>Click on the "Heroku Postgres" link at the bottom.</li>
+                            <li>Check the health of the database in the "Overview" pane.</li>
+                        </ol>
+                        If everything is good there, then you can open a PSQL console to the database 
+                        using <a href="https://devcenter.heroku.com/articles/heroku-cli">Heroku CLI</a>. 
+                        <ul>
+                            <li>Execute `heroku login` in the terminal and follow the instructions to login</li>
+                            <li>
+                                Connect to the database by executing: 
+                                `heroku pg:psql -a "alumnitraq`
+                            </li>
+                            <li>List out all the tables by executing `\d`</li>
+                            <li>Check if any foreign keys are violated for some reason</li>
+                            <li>
+                                You have pretty much absolute/unchecked privilege here, 
+                                so be careful not to delete everything or something.
+                            </li>
+                        </ul>
+                        Worst case scenario, you just reset the database and then restore 
+                        from the seed or a database backup.
+                        <ol>
+                            <li>From the database "Overview" pane, click on the "Settings" tab.</li>
+                            <li>Click on "Reset Database..."</li>
+                            <li>Confirm you want to reset the database by entering the name of the app</li>
+                            <li>In a terminal on your computer, run `heroku pg:backups:restore -a alumnitraq`</li>
+                            <li>Confirm the database has been restored to the most recent backup</li>
+                            <li>If you don't have a backup, the run `heroku run rails db:seed -a alumnitraq` in the terminal</li>
+                        </ol>
+                    </p>
+
+                    <h4>Troubleshooting</h4>
+                    <p>
+                        If the steps above don't check out, then try to Google what you 
+                        can see and read some 
+                        <a href="https://devcenter.heroku.com/categories/reference">documentation</a> 
+                        to get a better idea. Good luck.
+                    </p>
+                </article>
+
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,7 @@
-<h1>New Media Handle</h1>
+<div class="container">
+    <h1>New Media Handle</h1>
 
-<%= render 'form', media_handle: @media_handle %>
+    <%= render 'form', media_handle: @media_handle %>
 
-<%= link_to 'Back', Current.previous_path %>
+    <%= link_to 'Back', Current.previous_path, class: "btn btn-outline-dark" %>
+</div>
