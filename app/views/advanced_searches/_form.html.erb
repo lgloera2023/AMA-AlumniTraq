@@ -1,44 +1,41 @@
-<div class="container">
+<h1>Advanced Search</h1>
 
-  <h1>Advanced Search</h1>
-
-    <%= form_with(url: search_advanced_searches_path, method: 'get') do |form| %>
-      <div class="row">
-        <div class="field">
-          <%= form.text_field :first_name, placeholder: "First Name"%>
-        </div>
-
-        <div class="field">
-          <%= form.text_field :last_name, placeholder: "Last Name"%>
-        </div>
-
-        <div class="field">
-          <!-- Changed major_id to major_name -->
-          <%= form.select :major_id, Major.order(:name).map { |major| [major.name, major.id] }, include_blank: "Major", id: "id_of_the_major_id_select_box" %>
-        </div>
-
-        <div class="field">
-          <%= form.number_field :graduation_year, placeholder:"Graduation Year" %>
-        </div>
-
-
-        <div class="field">
-          <!-- Changed job_category_id to job_category_name -->
-          <%= form.select :job_category_id, JobCategory.order(:name).map { |job_category| [job_category.name, job_category.id] }, include_blank: "Job Category", id: "id_of_the_job_category_id_select_box", placeholder:"Job Category" %>
-       </div>
-
-        <div class="field">
-          <%= form.text_field :job_title, placeholder: "Job Title" %>
-        </div>
-
-        <div class="field">
-          <%= form.text_field :employer, placeholder:"Employer" %>
-        </div>
+  <%= form_with(url: search_advanced_searches_path, method: 'get') do |form| %>
+    <div class="row">
+      <div class="field">
+        <%= form.text_field :first_name, class: "input-light", placeholder: "First Name"%>
       </div>
 
-      <div class="hstack gap-3">
-        <%= form.submit "Search", class: "btn btn-outline-primary" %>
-        <%= link_to 'Return to Basic Search', '/', class: "btn btn-outline-dark", style:"font-family: adobe-garamond-pro" %>
+      <div class="field">
+        <%= form.text_field :last_name, class: "input-light", placeholder: "Last Name"%>
       </div>
-    <% end %>
-</div>
+
+      <div class="field light-select-container">
+        <!-- Changed major_id to major_name -->
+        <%= form.select :major_id, Major.order(:name).map { |major| [major.name, major.id] }, include_blank: "Major", id: "id_of_the_major_id_select_box" %>
+      </div>
+
+      <div class="field">
+        <%= form.number_field :graduation_year, class: "input-light", placeholder:"Graduation Year" %>
+      </div>
+
+
+      <div class="field light-select-container">
+        <!-- Changed job_category_id to job_category_name -->
+        <%= form.select :job_category_id, JobCategory.order(:name).map { |job_category| [job_category.name, job_category.id] }, include_blank: "Job Category", id: "id_of_the_job_category_id_select_box", placeholder:"Job Category" %>
+      </div>
+
+      <div class="field">
+        <%= form.text_field :job_title, class: "input-light", placeholder: "Job Title" %>
+      </div>
+
+      <div class="field">
+        <%= form.text_field :employer, class: "input-light", placeholder:"Employer" %>
+      </div>
+    </div>
+
+    <div class="hstack gap-3">
+      <%= form.submit "Search", class: "btn btn-outline-primary" %>
+      <%= link_to 'Return to Basic Search', '/', class: "btn btn-outline-dark", style:"font-family: adobe-garamond-pro" %>
+    </div>
+  <% end %>

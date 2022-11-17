@@ -3,7 +3,7 @@
 class MeetingsController < ApplicationController
   skip_before_action :set_smart_link, only: %i[destroy]
   before_action :set_meeting, only: %i[show edit update destroy]
-  before_action :check_event_authority, except: %i[index show]
+  before_action :check_event_authority, except: %i[index list show]
 
   # GET /meetings or /meetings.json
   def index
@@ -22,10 +22,15 @@ class MeetingsController < ApplicationController
     @meetings = Meeting.all
   end
 
+  # GET /meetings/list
+  def list
+    @meetings = Meeting.order(:name)
+  end
+
   # GET /meetings/1 or /meetings/1.json
   def show
     @event_attendee = EventAttendee.find_by(user: Current.user, meeting: @meeting)
-    Current.previous_path = '/meetings'
+    Current.previous_path = '/meetings' unless Current.user.is_admin?
   end
 
   # GET /meetings/new
@@ -35,7 +40,7 @@ class MeetingsController < ApplicationController
 
   # GET /meetings/1/edit
   def edit
-    Current.previous_path = "/meetings/#{String(@meeting.id)}"
+    Current.previous_path = "/meetings/#{String(@meeting.id)}" unless Current.user.is_admin?
   end
 
   # POST /meetings or /meetings.json

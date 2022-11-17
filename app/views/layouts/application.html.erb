@@ -21,7 +21,7 @@
       <nav class="navbar navbar-expand-lg" style="background-image: url('https://marcomm.tamu.edu/_files/img/work-with-us_2400.jpg');">
         <div class="container-fluid" style="padding: 30px 30px 30px 30px;">
           <a class="navbar-brand"></a>
-          <img src="https://images.squarespace-cdn.com/content/v1/568841be5a56682e0b8162f2/1510940137363-1T0H93GH67WNQO652JN2/amalogo.png?format=1500w" alt="Logo" class="main-text">
+          <img src="https://images.squarespace-cdn.com/content/v1/568841be5a56682e0b8162f2/1510940137363-1T0H93GH67WNQO652JN2/amalogo.png?format=1500w" alt="Logo" class="main-text" style="max-width: 85vw;">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -51,7 +51,7 @@
                     loading="lazy"
                   />
                 </a>
-                <ul class="dropdown-menu dropdown-menu-end">
+                <ul class="dropdown-menu dropdown-menu-end input-light">
                   <li>
                     <li><%= link_to "Settings", Current.user, class: "dropdown-item" %></li>  
                   </li>
@@ -66,27 +66,6 @@
                   </li>
                 </ul>
               </li>
-
-              <!-- Google Translate -->
-              <div id="google_translate_element"></div>
-              <script type="text/javascript">
-                function googleTranslateElementInit() {
-                  new google.translate.TranslateElement(
-                      {pageLanguage: 'en'},
-                      'google_translate_element'
-                  );
-              }
-              </script>
-    
-              <script type="text/javascript"
-                src= "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-              </script>
-
-              <div data-controller="dark-mode" class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input" id="darkSwitch" />
-                <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
-              </div>
-              
             </ul>
           </div>
           </a>
@@ -95,7 +74,50 @@
 
     <% end %>
 
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
+
+  <% if Current.user %>
+    <% unless session[:current_path] == "/users/#{Current.user.id}" %>
+      <!-- Google Translate -->
+      <div id="google_translate_element" style="display: none"></div>
+
+      <!-- Google Translate JavaScript -->
+      <div>
+        <script type="text/javascript">
+          function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            );
+        }
+        </script>
+
+        <script type="text/javascript"
+          src= "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+        </script>
+
+        <!-- Sometimes Google Translate is added twice -->
+        <script>
+          delay = setTimeout(() => {
+            // Check if two child nodes have been added to translate element
+            let google_translate_element = document.querySelector("#google_translate_element");
+            if (google_translate_element.childElementCount > 1) {
+              extra = google_translate_element.children[1];
+              google_translate_element.removeChild(extra);
+            }
+
+            window.clearTimeout(delay);
+          }, 100);
+        </script>
+      </div>
+
+      <div data-controller="dark-mode" class="form-check form-switch" style="display: none">
+        <input type="checkbox" class="form-check-input" role="switch" id="darkSwitch" />
+      </div>
+    <% end %>
+  <% end %>
 
 </html>

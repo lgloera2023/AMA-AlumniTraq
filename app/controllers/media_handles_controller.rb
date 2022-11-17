@@ -11,23 +11,24 @@ class MediaHandlesController < ApplicationController
                      else
                        MediaHandle.where(alumnus: Current.user.alumnus)
                      end
-    Current.previous_path = '/settings'
+    # Override previous path for normal users
+    Current.previous_path = "/users/#{String(Current.user.id)}" unless Current.user.is_admin?
   end
 
   # GET /media_handles/1 or /media_handles/1.json
   def show
-    Current.previous_path = '/media_handles'
+    Current.previous_path = '/media_handles' unless Current.user.is_admin?
   end
 
   # GET /media_handles/new
   def new
     @media_handle = MediaHandle.new
-    Current.previous_path = '/media_handles'
+    Current.previous_path = '/media_handles' unless Current.user.is_admin?
   end
 
   # GET /media_handles/1/edit
   def edit
-    Current.previous_path = "/media_handles/#{String(@media_handle.id)}"
+    Current.previous_path = "/media_handles/#{String(@media_handle.id)}" unless Current.user.is_admin?
   end
 
   # POST /media_handles or /media_handles.json

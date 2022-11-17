@@ -1,74 +1,109 @@
-<div class="container">
+<p id="notice"><%= notice %></p>
 
-  <p id="notice"><%= notice %></p>
+<section class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-8 mb-4 mb-lg-0">
+        <div class="card mb-3" style="border: none; background-color: inherit">
+          <div class="row g-0 bg-light card-glow" style="border-radius: 10px">
+            <div class="col-md-5 gradient-custom text-center text-black pt-4" style="border-radius: 10px 0px 0px 10px;">
+              <% if @user.is_alumnus? %>
+                <%= link_to image_tag(@user.alumnus.image_as_thumbnail, class:"img-fluid my-5"), @user.alumnus.image if @user.alumnus.image.attached?%>
+              <% end %>
+                <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+              <!-- Only show ID to admin -->
+              <% if @user.role.id == 1 %>
+                <p>
+                <strong>ID:</strong>
+                <%= @user.id %>
+                </p>
+              <% end %>
+              <p><strong><%= @user.role_name_if_present %></strong></p>
 
-  <section class="vh-100">
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col col-lg-6 mb-4 mb-lg-0">
-          <div class="card mb-3" style="border-radius: .5rem;">
-            <div class="row g-0">
-              <div class="col-md-6 gradient-custom text-center text-black pt-4"
-                style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                <% if @user.is_alumnus? %>
-                  <%= link_to image_tag(@user.alumnus.image_as_thumbnail), @user.alumnus.image, class:"img-fluid my-5", style:"width: 80px" if @user.alumnus.image.attached?%>
-                <% end %>
-                  <h1><%= @user.first_name %> <%= @user.last_name %></h1>
-                <!-- Only show ID to admin -->
-                <% if @user.role.id == 1 %>
-                  <p>
-                  <strong>ID:</strong>
-                  <%= @user.id %>
-                  </p>
-                <% end %>
-                <p><strong><%= @user.role.name %></strong></p>
-                <i class="far fa-edit mb-5"></i>
-              </div>
-              <div class="col-md-4 mt-4">
-                <div class="card-body p-1">
-                  <h6><strong>Information</strong></h6>
-                  <hr class="mt-0 mb-4">
-                  <div class="row pt-1">
-                    <div class="col-6 mb-3">
-                      <h6>Email</h6>
-                      <p class="text-muted"><%= @user.email%></p>
-                    </div>
-                    <div class="col-6 mb-3">
-                      <h6>Phone</h6>
-                      <p class="text-muted"><%= @user.phone %></p>
-                    </div>
-                    <div class="col-6 mb-3">
-                      <h6>Major</h6>
-                      <p class="text-muted"><%= @user.major_name_if_present%></p>
-                    </div>
-                    <div class="col-6 mb-3">
-                      <h6>Graduation Year</h6>
-                      <p class="text-muted"><%= @user.graduation_year%></p>
-                    </div>
+            </div>
+            <div class="col-md-7 mt-4">
+              <div class="card-body p-1">
+                <h6><center><strong>Information</strong></center></h6>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <h6>Email</h6>
+                    <p class="text-muted"><%= @user.email%></p>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <h6>Phone</h6>
+                    <p class="text-muted"><%= @user.phone %></p>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <h6>Major</h6>
+                    <p class="text-muted"><%= @user.major_name_if_present%></p>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <h6>Graduation Year</h6>
+                    <p class="text-muted"><%= @user.graduation_year%></p>
                   </div>
                 </div>
               </div>
             </div>
-            
           </div>
+        </div>
 
-          <div class="mb-4">
-          <div class="hstack gap-3">
+        <div class="mb-4">
+          <div class="hstack gap-3 my-3">
             <%= link_to 'Edit Account Details', edit_user_path(@user), class: "btn btn-outline-primary" %>
               <% if Current.user.is_alumnus? %>
-                  <%= link_to 'View Alumnus Info', Current.user.alumnus, class: "btn btn-outline-primary" %>
-                  <%= link_to 'Social Media Handles', media_handles_path, class: "btn btn-outline-primary" %>
+                <%= link_to 'View Alumnus Info', Current.user.alumnus, class: "btn btn-outline-primary" %>
+                <%= link_to 'Social Media Handles', media_handles_path, class: "btn btn-outline-primary" %>
               <% end %>
-              </div>
-              <div class="mt-2">
-                <%= link_to 'Back', Current.previous_path, class: "btn btn-outline-dark" %>
-              </div>
           </div>
+          <% if Current.user == @user %>
+            <!-- Show accessibility features if current user is viewing their profile -->
+            <div class="hstack gap-3 my-3">
+              <!-- Google Translate -->
+              <div id="google_translate_element"></div>
 
+              <div data-controller="dark-mode" class="form-check form-switch">
+                <input type="checkbox" class="form-check-input" role="switch" id="darkSwitch" />
+                <label class="form-check-label" for="darkSwitch">Dark Mode</label>
+              </div>
+            </div>
+          <% end %>
+          <div class="mt-2">
+            <%= link_to 'Back', Current.previous_path, class: "btn btn-outline-dark" %>
+          </div>
         </div>
+
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- Google Translate JavaScript -->
+<div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+          {pageLanguage: 'en'},
+          'google_translate_element'
+      );
+  }
+  </script>
+
+  <script type="text/javascript"
+    src= "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+  </script>
+
+  <!-- Sometimes Google Translate is added twice -->
+  <script>
+    delay = setTimeout(() => {
+      // Check if two child nodes have been added to translate element
+      let google_translate_element = document.querySelector("#google_translate_element");
+      if (google_translate_element.childElementCount > 1) {
+        extra = google_translate_element.children[1];
+        google_translate_element.removeChild(extra);
+      }
+
+      window.clearTimeout(delay);
+    }, 100);
+  </script>
 </div>
-
-

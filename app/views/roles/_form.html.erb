@@ -12,11 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "input-light", placeholder: "Name" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-outline-primary' %>
   </div>
 <% end %>

@@ -1,23 +1,21 @@
-<div class="container">
-  <%= form_tag search_basic_searches_url, :method => 'get' do %>
-    <div class="card mb-4">
-      <div class="card-body">
-        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-          <a class="nav-link active" id="nav-basic-search-tab" data-bs-toggle="tab" href="#nav-basic-search" role="tab" aria-controls="nav-basic-search" aria-selected="true">Keyword Search</a>
-          <a class="nav-link" id="nav-advanced-search-tab" href="/advanced_searches" role="tab" aria-controls="nav-advanced-search" aria-selected="false">Advanced Search</a>
-        </div>
+<%= form_tag search_basic_searches_url, :method => 'get' do %>
+  <div class="card mb-4 bg-light">
+    <div class="card-body">
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-link active input-light" id="nav-basic-search-tab" data-bs-toggle="tab" href="#nav-basic-search" role="tab" aria-controls="nav-basic-search" aria-selected="true">Keyword Search</a>
+        <a class="nav-link" id="nav-advanced-search-tab" href="/advanced_searches" role="tab" aria-controls="nav-advanced-search" aria-selected="false">Advanced Search</a>
+      </div>
 
-        <div class="tab-content pt-3" id="nav-tabContent">
-          <div class="tab-pane fade show active pt-0" id="nav-basic-search" role="tabpanel" aria-labelledby="nav-basic-search-tab">
-            <div class="hstack gap-3">
-              <%= search_field_tag :keyword, params[:keyword], class: "form-control form-control-lg rounded", placeholder: "Enter Keyword"%>
-              <%= submit_tag 'Search', class: "btn btn-outline-primary" %>
-              <a class="btn btn-outline-dark" href="/">Reset</a>
-            </div>
-          </div
-        </div>
+      <div class="tab-content pt-3" id="nav-tabContent">
+        <div class="tab-pane fade show active pt-0" id="nav-basic-search" role="tabpanel" aria-labelledby="nav-basic-search-tab">
+          <div class="hstack gap-3">
+            <%= search_field_tag :keyword, params[:keyword], class: "form-control form-control-lg rounded input-light", placeholder: "Enter Keyword"%>
+            <%= submit_tag 'Search', class: "btn btn-outline-primary" %>
+            <a class="btn btn-outline-dark" href="/">Reset</a>
+          </div>
+        </div
       </div>
     </div>
-  <% end %> 
-</div>
+  </div>
+<% end %> 
 

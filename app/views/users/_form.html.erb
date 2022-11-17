@@ -15,25 +15,25 @@
   <%if !session[:is_signup] && Current.user.is_admin? && Current.user.id != user.id%>
     <div class="mb-3">
       <%= form.label :email, class: "col-sm-2" %>
-      <%= form.text_field :email, placeholder: "Email", class: "form-control" %>
+      <%= form.text_field :email, placeholder: "Email", class: "form-control input-light" %>
     </div>
     
-    <div class="mb-3">
+    <div class="mb-3 light-select-container">
       <%= form.label :role_name, class: "col-sm-2" %>
       <%= form.select :role_id, Role.order(:name).map { |role| [role.name, role.id] }, include_blank: false, id: "id_of_the_role_id_select_box", class: "form-control" %>
     </div>
   <%else%>
     <div class="mb-3">
       <%= form.label :email, class: "col-sm-2" %>
-      <%= form.text_field :email, readonly: true, class: "form-control" %>
+      <%= form.text_field :email, readonly: true, class: "form-control input-light" %>
     </div>
 
-    <div class="mb-3">
+    <div class="mb-3 light-select-container">
       <%= form.label :role_name, class: "col-sm-2" %>
       <% if Current.user.is_admin? %>
         <!-- Require another admin to demote current admin -->
         <% role = user.role %>
-        <%= form.text_field :role_name, value: role.name, readonly: true, class: "form-control" %>
+        <%= form.text_field :role_name, value: role.name, readonly: true, class: "form-control input-light" %>
       <% elsif Current.user.is_event_planner? %>
         <%= form.select :role_id, Role.where('id > 1').order(:name).map { |role| [role.name, role.id] }, include_blank: false, id: "id_of_the_role_id_select_box", class: "form-control" %>
       <% else %>
@@ -46,30 +46,28 @@
     <!-- Form Group (first name)-->
     <div class="col-md-6">
       <%= form.label :first_name, class: "small mb-1" %>
-      <%= form.text_field :first_name, placeholder: "First Name", class: "form-control" %>
+      <%= form.text_field :first_name, placeholder: "First Name", class: "form-control input-light" %>
     </div>
     <!-- Form Group (last name)-->
     <div class="col-md-6">
       <%= form.label :last_name, class: "small mb-1" %>
-      <%= form.text_field :last_name, placeholder: "Last Name", class: "form-control" %>
+      <%= form.text_field :last_name, placeholder: "Last Name", class: "form-control input-light" %>
     </div>
   </div>
 
-  <div class="mb-3">
+  <div class="mb-3 light-select-container">
     <%= form.label :major_name, class: "col-sm-2" %>
     <%= form.select :major_id, Major.order(:name).map { |major| [major.name, major.id] }, include_blank: false, id: "id_of_the_major_id_select_box", class: "form-control" %>
   </div>
 
   <div class="row gx-3 mb-3">
-    <!-- Form Group (first name)-->
     <div class="col-md-6">
       <%= form.label :graduation_year, class: "small mb-1" %>
-      <%= form.text_field :graduation_year, placeholder: "Graduation Year", class: "form-control" %>
+      <%= form.text_field :graduation_year, placeholder: "Graduation Year", class: "form-control input-light" %>
     </div>
-    <!-- Form Group (last name)-->
     <div class="col-md-6">
       <%= form.label :phone, class: "small mb-1" %>
-      <%= form.text_field :phone, placeholder: "Phone Number", class: "form-control" %>
+      <%= form.text_field :phone, placeholder: "Phone Number", class: "form-control input-light" %>
     </div>
   </div>
 

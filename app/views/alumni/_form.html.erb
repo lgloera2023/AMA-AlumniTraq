@@ -13,7 +13,7 @@
 
   <!-- Only allow admin to change the user foreign key -->
   <% if Current.user.is_admin? %>
-    <div class="field">
+    <div class="field light-select-container">
       <!-- Change the ID to a dropdown -->
       <%= form.select :user_id, User.where("role_id = 3").order(:last_name).map { |user| [user.first_name + " " + user.last_name + " - " + String(user.graduation_year), user.id] }, include_blank: "User ID", id: "id_of_the_user_id_select_box" %>
     </div>
@@ -24,28 +24,28 @@
   <% end %>
 
   <div class="field">
-    <%= form.file_field :image%>
+    <%= form.file_field :image, accept: 'image/png,image/gif,image/jpeg,image/jpg' %>
   </div>
 
   <div class="field">
-    <%= form.text_area :bio, placeholder: "Bio" %>
+    <%= form.text_area :bio, class: "input-light", placeholder: "Bio" %>
   </div>
 
   <div class="field">
-    <%= form.text_field :job_title, placeholder: "Job Title" %>
+    <%= form.text_field :job_title, class: "input-light", placeholder: "Job Title" %>
   </div>
 
-  <div class="field">
+  <div class="field light-select-container">
     <!-- Changed job_category_id to job_category_name -->
     <%= form.select :job_category_id, JobCategory.order(:name).map { |job_category| [job_category.name, job_category.id] }, include_blank: "Job Category", id: "id_of_the_job_category_id_select_box" %>
   </div>
 
   <div class="field">
-    <%= form.text_field :employer, placeholder: "Employer" %>
+    <%= form.text_field :employer, class: "input-light", placeholder: "Employer" %>
   </div>
 
   <div class="field">
-    <%= form.text_area :availability, placeholder: "Availability" %>
+    <%= form.text_area :availability, class: "input-light", placeholder: "Availability" %>
   </div>
 
   <div class="actions">

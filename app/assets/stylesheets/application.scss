@@ -84,6 +84,16 @@ nav li form input:hover {
 
     display: block !important;
     padding: 0.75em 1em !important;
+
+    transition: 0.25s;
+}
+
+.nav-text:hover {
+    color: rgb(95, 165, 255) !important;
+}
+
+.nav-text:active {
+    color:rgb(50, 95, 150) !important;
 }
 
 .text-style{
@@ -104,5 +114,14 @@ nav li form input:hover {
 }
 
 .gradient-custom {
-    background: linear-gradient(to right bottom, rgb(15, 164, 223), rgb(249, 133, 253))
+    background: linear-gradient(to right bottom,maroon, #eee); /*rgb(15, 164, 223), rgb(249, 133, 253)) */
+}
+
+input, select {
+    border-radius: 5px;
+    padding-left: 5px;
+}
+
+.light-time-container {
+    padding-left: 5px;
 }

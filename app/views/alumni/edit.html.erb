@@ -1,10 +1,8 @@
-<div class="container">
-    <h1>Editing Alumnus</h1>
+<h1>Editing Alumnus</h1>
 
-    <%= render 'form', alumnus: @alumnus %>
+<%= render 'form', alumnus: @alumnus %>
 
-    <div class="hstack gap-3">
-        <%= link_to 'Show Profile', @alumnus, class: "btn btn-outline-primary" %> 
-        <%= link_to 'Back', Current.previous_path, class: "btn btn-outline-dark" %>
-    </div>
+<div class="hstack gap-3">
+    <%= link_to 'Show Profile', @alumnus, class: "btn btn-outline-primary" %> 
+    <%= link_to 'Back', Current.previous_path, class: "btn btn-outline-dark" %>
 </div>

@@ -1,38 +1,36 @@
-<div class="container">
 <h1>Directory</h1>
 <%= render 'form' %>
 
-  <h3><%= t(".found") %> <%= @results.size %> <%= t(".matches") %> </h3>
+<h3><%= t(".found") %> <%= @results.size %> <%= t(".matches") %> </h3>
 
-  <table class="table table-hover align-middle bg-white", id="directory-table" style="table-layout: fixed">
-    <thead class="col-md-7 bg-light" style="position: sticky">
-      <tr>
-        <th style="word-wrap: break-word"><%= t(".first_name") %></th>
-        <th style="word-wrap: break-word"><%= t(".last_name") %></th>
-        <th style="word-wrap: break-word"><%= t(".major") %></th>
-        <th style="word-wrap: break-word"><%= t(".graduation_year") %></th>
-        <th style="word-wrap: break-word"><%= t(".job_category") %></th>
-        <th style="word-wrap: break-word"><%= t(".job_title") %></th>
-        <th style="word-wrap: break-word"><%= t(".employer") %></th>
-      <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <div class="d-flex align-items-center" >
-        <% @results.each do |user| %>
-          <tr id="directory-info">
-            <td style="word-wrap: break-word; font-family: adobe-garamond-pro"><%= user.first_name %></td>
-            <td style="word-wrap: break-word; font-family: adobe-garamond-pro"><%= user.last_name %></td>
-            <td style="word-wrap: break-word; font-family: adobe-garamond-pro"><%= user.major_name_if_present %></td>
-            <td style="word-wrap: break-word; font-family: adobe-garamond-pro"><%= user.graduation_year %></td>
-            <td style="word-wrap: break-word; font-family: adobe-garamond-pro"><%= user.alumnus.job_category_name_if_present %></td>
-            <td style="word-wrap: break-word; font-family: adobe-garamond-pro"><%= user.alumnus.job_title %></td>
-            <td style="word-wrap: break-word; font-family: adobe-garamond-pro"><%= user.alumnus.employer %></td>
-            <td style="word-wrap: break-word; font-family: adobe-garamond-pro"><%= link_to 'View', '/basic_searches/' + String(user.id) %></td>
-          </tr>
-        <% end %>
-      </div>
-    </tbody>
-  </table>
-</div>
+<table class="table table-hover align-middle bg-white", id="directory-table" style="table-layout: fixed">
+  <thead class="col-md-7 bg-light" style="position: sticky">
+    <tr>
+      <th style="word-wrap: break-word"><%= t(".first_name") %></th>
+      <th style="word-wrap: break-word"><%= t(".last_name") %></th>
+      <th style="word-wrap: break-word"><%= t(".major") %></th>
+      <th style="word-wrap: break-word"><%= t(".graduation_year") %></th>
+      <th style="word-wrap: break-word"><%= t(".job_category") %></th>
+      <th style="word-wrap: break-word"><%= t(".job_title") %></th>
+      <th style="word-wrap: break-word"><%= t(".employer") %></th>
+    <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <div class="d-flex align-items-center" >
+      <% @results.each do |user| %>
+        <tr id="directory-info">
+          <td style="word-wrap: break-word; font-family: adobe-garamond-pro"><%= user.first_name %></td>
+          <td style="word-wrap: break-word; font-family: adobe-garamond-pro"><%= user.last_name %></td>
+          <td style="word-wrap: break-word; font-family: adobe-garamond-pro"><%= user.major_name_if_present %></td>
+          <td style="word-wrap: break-word; font-family: adobe-garamond-pro"><%= user.graduation_year %></td>
+          <td style="word-wrap: break-word; font-family: adobe-garamond-pro"><%= user.alumnus.job_category_name_if_present %></td>
+          <td style="word-wrap: break-word; font-family: adobe-garamond-pro"><%= user.alumnus.job_title %></td>
+          <td style="word-wrap: break-word; font-family: adobe-garamond-pro"><%= user.alumnus.employer %></td>
+          <td style="word-wrap: break-word; font-family: adobe-garamond-pro"><%= link_to 'View', '/basic_searches/' + String(user.id) %></td>
+        </tr>
+      <% end %>
+    </div>
+  </tbody>
+</table>
 

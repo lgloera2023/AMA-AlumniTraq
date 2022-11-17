@@ -13,23 +13,22 @@
 
   <!-- Only allow admin to change the user foreign key -->
   <% if Current.user.is_admin? %>
-    <div class="field">
+    <div class="field light-select-container">
       <!-- Change the ID to a dropdown -->
-      <%= form.label :alumnus_id %>
       <%= form.select :alumnus_id, User.where("role_id = 3").order(:last_name).map { |user| [user.first_name + " " + user.last_name + " - " + String(user.graduation_year), user.alumnus.id] }, include_blank: false, id: "id_of_the_alumnus_id_select_box" %>
     </div>
   <% else %>
     <!-- Just display the name of the user -->
     <h3><%= Current.user.first_name %> <%= Current.user.last_name %></h3>
-    <%= form.hidden_field :alumnus_id, value: Current.user.alumnus.id %>
+    <%= form.hidden_field :alumnus_id, class: "light-input", value: Current.user.alumnus.id %>
   <% end %>
 
-  <div class="field">
+  <div class="field light-select-container">
     <%= form.select :platform, ["Facebook", "GitHub", "GroupMe", "Instagram", "LinkedIn", "Pinterest", "Reddit", "Snapchat", "TikTok", "Twitter", "WhatsApp", "YouTube", "Other"], selected: "Other", include_blank: "Platform" %>
   </div>
 
   <div class="field">
-    <%= form.url_field :link, placeholder: "Link" %>
+    <%= form.url_field :link, class: "input-light", placeholder: "Link" %>
   </div>
 
   <div class="actions">

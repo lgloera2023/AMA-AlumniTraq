@@ -1,16 +1,62 @@
 [data-theme="dark"] {
   background-color: #111 !important;
-  color: #eee;
+  color: wheat;
 }
 
 [data-theme="dark"] .bg-light {
-  background-color: #333 !important;
+  background-color: #19171c !important;
+  color: wheat;
 }
 
 [data-theme="dark"] .bg-white {
   background-color: #000 !important;
+  color: wheat;
 }
 
 [data-theme="dark"] .bg-black {
   background-color: #eee !important;
+}
+
+[data-theme="dark"] .bg-medium {
+  background-color: #555 !important;
+  color: #888 !important;
+}
+
+[data-theme="dark"] .input-light, [data-theme="dark"] .light-select-container * {
+  background-color: #000 !important;
+  color: wheat !important;
+  border: none;
+  box-shadow: 0 0 10px #446 !important;
+  transition: 0.25s;
+}
+
+[data-theme="dark"] .input-light:focus {
+  box-shadow: 0 0 10px #0d6efd !important;
+}
+
+[data-theme="dark"] .card-body {
+  color: wheat !important;
+}
+
+[data-theme="dark"] .card-glow {
+  box-shadow: 0 0 10px #446;
+}
+
+[data-theme="dark"] #google_translate_element select {
+  border: 1px solid #0d6efd;
+  background-color: #111;
+  color: wheat;
+}
+
+[data-theme="dark"] .light-time-container {
+  background-color: #000 !important;
+  color: wheat !important;
+  border: none;
+  box-shadow: 0 0 10px #446 !important;
+}
+
+[data-theme="dark"] .light-time-container * {
+  background-color: #000 !important;
+  color: wheat !important;
+  border: none;
 }

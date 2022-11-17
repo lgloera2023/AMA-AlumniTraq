@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :job_categories
   resources :majors
   resources :event_attendees
+  # Must put this custom route so meetings#show doesn't override
+  get '/meetings/list', action: :list, controller: 'meetings', as: :meetings_list
   resources :meetings
   resources :media_handles
   resources :alumni

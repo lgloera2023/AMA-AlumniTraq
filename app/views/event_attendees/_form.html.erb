@@ -11,19 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :meeting_id %>
+  <div class="field light-select-container">
     <!-- Changed meeting_id to meeting_name -->
-    <%= form.select :meeting_id, Meeting.order(:start_time).map { |meeting| [meeting.name, meeting.id] }, include_blank: false, id: "id_of_the_meeting_id_select_box" %>
+    <%= form.select :meeting_id, Meeting.order(:start_time).map { |meeting| [meeting.name + " - " + String(meeting.start_time), meeting.id] }, include_blank: false, id: "id_of_the_meeting_id_select_box" %>
   </div>
 
-  <div class="field">
+  <div class="field light-select-container">
     <!-- Change the ID to a dropdown -->
-    <%= form.label :user_id %>
     <%= form.select :user_id, User.order(:last_name).map { |user| [user.first_name + " " + user.last_name + " - " + String(user.graduation_year), user.id] }, include_blank: false, id: "id_of_the_user_id_select_box" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-outline-primary' %>
   </div>
 <% end %>

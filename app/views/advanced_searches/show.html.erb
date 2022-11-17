@@ -1,113 +1,108 @@
-<div class="container">
+<p id="notice"><%= notice %></p>
 
-  <p id="notice"><%= notice %></p>
-
-  <section class="vh-100">
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col col-lg-6 mb-4 mb-lg-0">
-          <div class="card mb-3" style="border-radius: .5rem;">
-            <div class="row g-0">
-              <div class="col-md-6 gradient-custom text-center text-black pt-4"
-                style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                <%= link_to image_tag(@user.alumnus.image_as_thumbnail), @user.alumnus.image, class:"img-fluid my-5", style:"width: 80px" if @user.alumnus.image.attached?%>
-                <h1><%= @user.first_name %> <%= @user.last_name %></h1>
-                <i class="far fa-edit mb-5"></i>
-              </div>
-              <div class="col-md-4 mt-4">
-                <div class="card-body p-1">
-                  <h6><strong>Information</strong></h6>
-                  <hr class="mt-0 mb-4">
-                  <div class="row pt-1">
-                    <div class="col-6 mb-3">
-                      <h6>Email</h6>
-                      <p class="text-muted"><%= @user.email%></p>
-                    </div>
-                    <div class="col-6 mb-3">
-                      <h6>Phone</h6>
-                      <p class="text-muted"><%= @user.phone %></p>
-                    </div>
-                    <div class="col-6 mb-3">
-                      <h6>Major</h6>
-                      <% if @user.major.present? %>
-                        <p class="text-muted"><%= @user.major.name %></p>
-                      <% end %>
-                    </div>
-                    <div class="col-6 mb-3">
-                      <h6>Graduation Year</h6>
-                      <p class="text-muted"><%= @user.graduation_year%></p>
-                    </div>
+<section class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-6 mb-4 mb-lg-0">
+        <div class="card mb-3" style="border: none; background-color: inherit">
+          <div class="row g-0 bg-light card-glow" style="border-radius: 10px">
+            <div class="col-md-5 gradient-custom text-center text-black pt-4 d-flex flex-column justify-content-center" style="border-radius: 10px 0px 0px 10px;">
+              <%= link_to image_tag(@user.alumnus.image_as_thumbnail, class:"img-fluid my-5"), @user.alumnus.image if @user.alumnus.image.attached?%>
+              <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+            </div>
+            <div class="col-md-7 mt-4">
+              <div class="card-body p-1">
+                <h6><strong>Information</strong></h6>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <h6>Email</h6>
+                    <p class="text-muted"><%= @user.email%></p>
                   </div>
-
-                  <h6><strong>Occupation</strong></h6>
-                  <hr class="mt-0 mb-4">
-                  <div class="row pt-1">
-                    <div class="col-6 mb-3">
-                      <h6>Job Title</h6>
-                      <p class="text-muted"><%= @user.alumnus.job_title%></p>
-                    </div>
-                    <div class="col-6 mb-3">
-                      <h6>Job Category</h6>
-                      <p class="text-muted"><%= @user.alumnus.job_category.name%></p>
-                    </div>
-                    <div class="col-6 mb-3">
-                      <h6>Employer</h6>
-                      <p class="text-muted"><%= @user.alumnus.employer%></p>
-                    </div>
+                  <div class="col-6 mb-3">
+                    <h6>Phone</h6>
+                    <p class="text-muted"><%= @user.phone %></p>
                   </div>
-
-                  <h6><strong>Bio</strong></h6>
-                  <hr class="mt-0 mb-4">
-                  <div class="row pt-1">
-                    <div class="col-6 mb-3">
-                      <p class="text-muted"><%= @user.alumnus.bio %></p>
-                    </div>
-                  </div> 
-
-                  <h6><strong>Availability</strong></h6>
-                  <hr class="mt-0 mb-4">
-                  <div class="row pt-1">
-                    <div class="col-6 mb-3">
-                      <p class="text-muted"><%= @user.alumnus.availability %></p>
-                    </div>
+                  <div class="col-6 mb-3">
+                    <h6>Major</h6>
+                    <% if @user.major.present? %>
+                      <p class="text-muted"><%= @user.major_name_if_present %></p>
+                    <% end %>
                   </div>
-
-                  <h6><strong>Social Media</strong></h6>
-                  <hr class="mt-0 mb-4">
-                  <div class="row pt-1">
-                    <div class="col-6 mb-3">
-                      <ul>
-                        <% @user.alumnus.media_handles.each do |handle| %>
-                          <li><%= button_to handle.platform, handle.link, method: :get %></li>
-                        <% end %>
-                      </ul>
-                    </div>
+                  <div class="col-6 mb-3">
+                    <h6>Graduation Year</h6>
+                    <p class="text-muted"><%= @user.graduation_year%></p>
                   </div>
-
                 </div>
+
+                <h6><strong>Occupation</strong></h6>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <h6>Job Title</h6>
+                    <p class="text-muted"><%= @user.alumnus.job_title%></p>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <h6>Job Category</h6>
+                    <p class="text-muted"><%= @user.alumnus.job_category_name_if_present%></p>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <h6>Employer</h6>
+                    <p class="text-muted"><%= @user.alumnus.employer%></p>
+                  </div>
+                </div>
+
+                <h6><strong>Bio</strong></h6>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <p class="text-muted"><%= @user.alumnus.bio %></p>
+                  </div>
+                </div> 
+
+                <h6><strong>Availability</strong></h6>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <p class="text-muted"><%= @user.alumnus.availability %></p>
+                  </div>
+                </div>
+
+                <h6><strong>Social Media</strong></h6>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <ul>
+                      <% @user.alumnus.media_handles.each do |handle| %>
+                        <li><%= button_to handle.platform, handle.link, method: :get %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                </div>
+
               </div>
             </div>
-            
           </div>
-          <div class="mb-4">
-          <% if Current.previous_path.start_with? "/advanced_searches/search" %>
-          <!-- Make it easier for user to go back to previous search -->
-          <%= form_with url: search_advanced_searches_url, method: :get do |form| %>
-            <% Current.previous_search.each do |param, value| %>
-              <%= form.hidden_field param, value: value %>
-            <% end %>
-            <%= form.submit 'Back', class: "btn btn-outline-dark" %>
+          
+        </div>
+        <div class="mb-4">
+        <% if Current.previous_path.start_with? "/advanced_searches/search" %>
+        <!-- Make it easier for user to go back to previous search -->
+        <%= form_with url: search_advanced_searches_url, method: :get do |form| %>
+          <% Current.previous_search.each do |param, value| %>
+            <%= form.hidden_field param, value: value %>
           <% end %>
-        <% else %>
-          <!-- Make it easier for user to go back to wherever they came from if not a search -->
-          <%= link_to 'Back', Current.previous_path, class: "btn btn-outline-dark" %>
+          <%= form.submit 'Back', class: "btn btn-outline-dark" %>
         <% end %>
-          </div>
+      <% else %>
+        <!-- Make it easier for user to go back to wherever they came from if not a search -->
+        <%= link_to 'Back', Current.previous_path, class: "btn btn-outline-dark" %>
+      <% end %>
         </div>
       </div>
-      
     </div>
-  </section>
-</div>
+    
+  </div>
+</section>
 
   

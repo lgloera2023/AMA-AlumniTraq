@@ -1,24 +1,21 @@
-<div class="container">
+<p id="notice"><%= notice %></p>
 
-  <p id="notice"><%= notice %></p>
+<p>
+  <strong>Alumnus:</strong>
+  <%= @media_handle.alumnus.user.first_name %> <%= @media_handle.alumnus.user.last_name %>
+</p>
 
-  <p>
-    <strong>Alumnus:</strong>
-    <%= @media_handle.alumnus.user.first_name %> <%= @media_handle.alumnus.user.last_name %>
-  </p>
+<p>
+  <strong>Platform:</strong>
+  <%= @media_handle.platform %>
+</p>
 
-  <p>
-    <strong>Platform:</strong>
-    <%= @media_handle.platform %>
-  </p>
+<p>
+  <strong>Link:</strong>
+  <%= @media_handle.link %>
+</p>
 
-  <p>
-    <strong>Link:</strong>
-    <%= @media_handle.link %>
-  </p>
-
-  <div class="hstack gap-3 mb-4">
-    <%= link_to 'Edit', edit_media_handle_path(@media_handle), class: "btn btn-outline-primary" %>
-    <%= link_to 'Back', Current.previous_path, class: "btn btn-outline-dark" %>
-  </div>
+<div class="hstack gap-3 mb-4">
+  <%= link_to 'Edit', edit_media_handle_path(@media_handle), class: "btn btn-outline-primary" %>
+  <%= link_to 'Back', Current.previous_path, class: "btn btn-outline-dark" %>
 </div>

@@ -54,10 +54,20 @@ class ApplicationController < ActionController::Base
 
   def set_smart_link
     if Rails.env.test?
-      Current.previous_path = ENV['current_path']
-      ENV['current_path'] = request.path
+      # Only update path if it has changed
+      if ENV['current_path'] == request.path
+        Current.previous_path = ENV['previous_path']
+      else
+        Current.previous_path = ENV['current_path']
+        ENV['previous_path'] = ENV['current_path']
+        ENV['current_path'] = request.path
+      end
+    elsif session[:current_path] == request.path
+      # Only update previous path if it has changed
+      Current.previous_path = session[:previous_path]
     else
       Current.previous_path = session[:current_path]
+      session[:previous_path] = session[:current_path]
       session[:current_path] = request.path
     end
   end

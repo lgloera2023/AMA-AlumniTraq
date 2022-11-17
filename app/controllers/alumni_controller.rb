@@ -12,7 +12,7 @@ class AlumniController < ApplicationController
 
   # GET /alumni/1 or /alumni/1.json
   def show
-    Current.previous_path = "/users/#{String(@alumnus.user.id)}"
+    Current.previous_path = "/users/#{String(@alumnus.user.id)}" unless Current.user.is_admin?
   end
 
   # GET /alumni/new
@@ -22,7 +22,7 @@ class AlumniController < ApplicationController
 
   # GET /alumni/1/edit
   def edit
-    Current.previous_path = "/alumni/#{String(@alumnus.id)}"
+    Current.previous_path = "/alumni/#{String(@alumnus.id)}" unless Current.user.is_admin?
   end
 
   # POST /alumni or /alumni.json

@@ -1,25 +1,23 @@
-<div class="container">
-  <p style="color: green"><%= notice %></p>
+<p style="color: green"><%= notice %></p>
 
-  <%= render @meeting %>
+<%= render @meeting %>
 
-  <p>
-    <strong>Status: </strong>
-    <% if @event_attendee %>
-      Attending | 
-      <%= link_to "Take me off the list", @event_attendee, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% else %>
-      Not Attending
-      <%= button_to "Count Me In!", event_attendees_path, method: :post, params: { user_id: Current.user.id, meeting_id: @meeting.id  } %>
-    <% end %>
-  </p>
+<p>
+  <strong>Status: </strong>
+  <% if @event_attendee %>
+    Attending | 
+    <%= link_to "Take me off the list", @event_attendee, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% else %>
+    Not Attending
+    <%= button_to "Count Me In!", event_attendees_path, method: :post, params: { user_id: Current.user.id, meeting_id: @meeting.id  }, class: "btn btn-outline-primary" %>
+  <% end %>
+</p>
 
-  <div>
-    <% if Current.user.is_admin? || Current.user.is_event_planner? %>
-      <%= link_to "Edit", edit_meeting_path(@meeting) %> |
-      <%= link_to "Destroy", @meeting, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <br>
-    <% end %>
-    <%= link_to 'Back', Current.previous_path %>
-  </div>
+<div>
+  <% if Current.user.is_admin? || Current.user.is_event_planner? %>
+    <%= link_to "Edit", edit_meeting_path(@meeting) %> |
+    <%= link_to "Destroy", @meeting, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <br>
+  <% end %>
+  <%= link_to 'Back', Current.previous_path %>
 </div>
