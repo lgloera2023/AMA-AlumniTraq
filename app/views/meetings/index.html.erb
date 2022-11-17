@@ -10,6 +10,9 @@
   <% end %>
 <% end %>
 
-<% if Current.user.is_admin? || Current.user.is_event_planner? %>
-  <%= link_to "Create a New meeting", new_meeting_path, class: "button-89 add-event-button" %>
-<% end %>
+<div class="event-btn-cluster">
+  <% if Current.user.is_admin? || Current.user.is_event_planner? %>
+    <%= link_to "Create a New meeting", new_meeting_path, class: "button-89 add-event-button" %>
+  <% end %>
+  <%= link_to "List of Events", meetings_list_path, class: "btn btn-outline-dark" %>
+</div>

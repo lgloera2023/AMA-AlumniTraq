@@ -3,61 +3,13 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 #login-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
+    left: 0;
+    width: 100vw;
     height: 100vh;
-}
-
-#login-main h1 {
-    text-align: center;
-    color: white;
-}
-
-#login-container {
-    background-color: rgb(25, 25, 40);
-    color: #888;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
     align-items: center;
-    padding: 25px 50px;
-    border-radius: 15px;
-    box-shadow: 0 0 10px black;
-}
-
-#login-main .oauth-button {
-    margin: 10px 0;
-    width: 100%;
-    text-align: center;
-    background-color: white;
-    color: black;
-    border-radius: 5px;
-    border: 1px #AAA solid;
-}
-
-#login-main .oauth-button:hover {
-    box-shadow: 0 0 5px white;
-    cursor: pointer;
-}
-
-#login-main .oauth-button:active {
-    box-shadow: none;
-    background-color: #AAA;
-}
-
-#login-main input {
-    width: 100%;
-}
-
-#signup-btn a {
-    color: #888;
-}
-
-#signup-btn a:hover {
-    color: #FFF;
-    background-color: initial;
+    justify-content: center;
 }
 
 .video-background {
@@ -87,23 +39,14 @@
 
 @media (min-width: 768px) {
     .sign-in-pad {
-            margin-right: 25rem !important;
-            margin-left: 25rem !important;
-            margin-top: 6rem !important;
-        }
+        min-width: 500px;
+        width: 50%;
+    }
 }
 
 form {
     display: inline !important;
     margin-top: 0em;
-}
-
-@media (min-width: 768px) {
-    .sign-up-pad {
-            margin-right: 17rem !important;
-            margin-left: 17rem !important;
-            margin-top: 4rem !important;
-        }
 }
 
 @media (min-width: 992px) {
@@ -129,7 +72,10 @@ form {
     line-height: 1.2em;
 }
 
-
+.card-body div:first-child {
+    flex: 0 0 auto;
+    width: 100%;
+}
 
 
 

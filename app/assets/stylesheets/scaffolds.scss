@@ -158,12 +158,19 @@ div.form-group {
   text-decoration: none !important;
 }
 
-.add-event-button {
-  position: absolute;
+.event-btn-cluster {
+  position: relative;
   left: 50%;
-  margin-top: 20px;
   transform: translate(-50%, -50%);
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-event-button {  
   text-decoration: none !important;
+  margin-right: 20px;
 }
 
 /* CSS */
