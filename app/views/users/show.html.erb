@@ -6,7 +6,7 @@
       <div class="col col-lg-8 mb-4 mb-lg-0">
         <div class="card mb-3" style="border: none; background-color: inherit">
           <div class="row g-0 bg-light card-glow" style="border-radius: 10px">
-            <div class="col-md-5 gradient-custom text-center text-black pt-4" style="border-radius: 10px 0px 0px 10px;">
+            <div class="col-md-5 gradient-custom text-center text-black pt-4 user-card-border">
               <% if @user.is_alumnus? %>
                 <%= link_to image_tag(@user.alumnus.image_as_thumbnail, class:"img-fluid my-5"), @user.alumnus.image if @user.alumnus.image.attached?%>
               <% end %>
