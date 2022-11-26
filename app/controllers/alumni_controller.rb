@@ -27,8 +27,6 @@ class AlumniController < ApplicationController
 
   # POST /alumni or /alumni.json
   def create
-    # CHANGE DEFAULT BEHAVIOR #
-    # Add functionality to create new employer if does not already exist
     @alumnus = Alumnus.new(alumnus_params)
 
     respond_to do |format|

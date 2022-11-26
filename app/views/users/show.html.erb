@@ -8,7 +8,7 @@
           <div class="row g-0 bg-light card-glow" style="border-radius: 10px">
             <div class="col-md-5 gradient-custom text-center text-black pt-4 user-card-border">
               <% if @user.is_alumnus? %>
-                <%= link_to image_tag(@user.alumnus.image_as_thumbnail, class:"img-fluid my-5"), @user.alumnus.image if @user.alumnus.image.attached?%>
+                <%= link_to image_tag(@user.alumnus.image_as_thumbnail, class:"img-fluid my-5"), url_for(@user.alumnus.image) if @user.alumnus.image.attached?%>
               <% end %>
                 <h1><%= @user.first_name %> <%= @user.last_name %></h1>
               <!-- Only show ID to admin -->
