@@ -71,9 +71,9 @@
                 <hr class="mt-0 mb-4">
                 <div class="row pt-1">
                   <div class="col-6 mb-3">
-                    <ul>
+                    <ul class="d-flex flex-wrap justify-content-around">
                       <% @user.alumnus.media_handles.each do |handle| %>
-                        <li><%= button_to handle.platform, handle.link, method: :get %></li>
+                        <li class="m-3"><%= link_to handle.platform, handle.link, class: "btn btn-outline-primary", target: "_blank" %></li>
                       <% end %>
                     </ul>
                   </div>
