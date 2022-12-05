@@ -83,3 +83,6 @@ gem 'omniauth-linkedin-oauth2', git: 'https://github.com/unreasonable/omniauth-l
 
 # Calendar plugin
 gem 'simple_calendar', '~> 2.4'
+
+# Adapter to store active storage files in PSQL database
+gem 'active_storage-postgresql'
