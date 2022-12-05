@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe('meetings/index', type: :view) do
+RSpec.describe('meetings/list', type: :view) do
   before do
     assign(:meetings, [
       Meeting.find_or_create_by!(
@@ -23,7 +23,8 @@ RSpec.describe('meetings/index', type: :view) do
 
   it 'renders a list of meetings' do
     render
-    cell_selector = Rails::VERSION::STRING >= '7' ? 'div>p' : 'tr>td>div>a'
+    cell_selector = Rails::VERSION::STRING >= '7' ? 'div>p' : 'tr>td'
     assert_select cell_selector, text: Regexp.new('Name'.to_s), count: 2
+    assert_select cell_selector, text: Regexp.new('MyText'.to_s), count: 2
   end
 end

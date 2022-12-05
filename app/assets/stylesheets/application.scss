@@ -24,6 +24,10 @@ body {
     padding: 0;
 }
 
+td, tr {
+    word-break: break-all;
+}
+
 nav {
     background-color: black;
     padding: 7px 0;
@@ -137,6 +141,10 @@ input, select {
 
     .user-card-border {
         border-radius: 10px 10px 0px 0px;
+    }
+
+    td {
+        word-break: initial;
     }
 
     td, th {
