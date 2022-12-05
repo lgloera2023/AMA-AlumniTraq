@@ -42,6 +42,5 @@ RSpec.describe('users/index', type: :view) do
     assert_select cell_selector, text: Regexp.new('International Studies'.to_s), count: 2
     assert_select cell_selector, text: Regexp.new(2023.to_s), count: 2
     assert_select cell_selector, text: Regexp.new('@test.com'.to_s), count: 2
-    assert_select cell_selector, text: Regexp.new('8328675309'.to_s), count: 2
   end
 end

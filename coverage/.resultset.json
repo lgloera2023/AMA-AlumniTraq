@@ -1027,7 +1027,7 @@
           1,
           null,
           1,
-          194,
+          197,
           null,
           null,
           1,
@@ -2349,8 +2349,6 @@
           null,
           null,
           1,
-          null,
-          null,
           4,
           null,
           4,
@@ -4259,7 +4257,7 @@
           null
         ]
       },
-      "/rails_app/spec/views/meetings/index.html.erb_spec.rb": {
+      "/rails_app/spec/views/meetings/list.html.erb_spec.rb": {
         "lines": [
           null,
           null,
@@ -4284,6 +4282,7 @@
           null,
           null,
           null,
+          1,
           1,
           1,
           1,
@@ -4540,7 +4539,6 @@
           1,
           1,
           1,
-          1,
           null,
           null
         ]
@@ -4659,6 +4657,6 @@
         ]
       }
     },
-    "timestamp": 1668675059
+    "timestamp": 1670271514
   }
 }
