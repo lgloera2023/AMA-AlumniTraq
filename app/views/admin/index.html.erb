@@ -30,10 +30,11 @@
                 <th>First name</th>
                 <th>Last name</th>
                 <th>Major</th>
-                <th>Graduation year</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th colspan="3"></th>
+                <th style="width: 97px">Graduation year</th>
+                <th style="width: 20%">Email</th>
+                <th id="col-edit"    style="width: 41px"></th>
+                <th id="col-remove"  style="width: 69px"></th>
+                <th id="col-approve" style="width: 115px"></th>
               </tr>
             </thead>
 
@@ -46,7 +47,6 @@
                   <td><%= user.major_name_if_present %></td>
                   <td><%= user.graduation_year %></td>
                   <td><%= user.email %></td>
-                  <td><%= user.phone %></td>
                   <td><%= link_to 'Edit', edit_user_path(user.id)%></td>
                   <td><%= link_to 'Remove', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                   <td>
